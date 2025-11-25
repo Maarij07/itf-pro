@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "service": "Service",
+    "project": "Projet",
+    "contact": "Contactez-nous",
+    "language": "Français",
+    "language_code": "fr"
+  },
+  "footer": {
+    "aboutHeading": "À propos",
+    "aboutText": "Solutions fiables en isolation et protection contre l'incendie. Nous nous engageons à fournir des services experts d'imperméabilisation au feu et d'isolation thermique. Nos professionnels certifiés garantissent des performances élevées et la durabilité de vos structures. Contactez-nous pour protéger vos structures en toute confiance",
+    "officeHeading": "Bureau",
+    "addressLine1": "18 Office Park Building 21th Floor Unit C.",
+    "addressCity": "Somewhere city, France,",
+    "addressZip": "12520",
+    "contactHeading": "Contact",
+    "email": "contact@itf-pro.fr",
+    "phone": "(+33) 07 -58-88-37-18",
+    "quickLinks": "Liens rapides"
+  }
+}

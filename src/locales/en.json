@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "service": "Service",
+    "project": "Project",
+    "contact": "Contact Us",
+    "language": "English",
+    "language_code": "en"
+  },
+  "footer": {
+    "aboutHeading": "About Us",
+    "aboutText": "Reliable Solutions in Insulation and Fire Protection. We are committed to providing expert fireproofing and thermal insulation services. Our certified professionals ensure high performance and durability for your structures. Contact us to protect your structures with confidence",
+    "officeHeading": "Office",
+    "addressLine1": "18 Office Park Building 21th Floor Unit C.",
+    "addressCity": "Somewhere city, France,",
+    "addressZip": "12520",
+    "contactHeading": "Contact",
+    "email": "contact@itf-pro.fr",
+    "phone": "(+33) 07 -58-88-37-18",
+    "quickLinks": "Quick Links"
+  }
+}
