@@ -22,38 +22,77 @@ export default function ProcessTimeline() {
       <div className="max-w-7xl mx-auto">
         {/* Timeline Container */}
         <div className="relative py-12">
-          {/* Horizontal Line - centered */}
+          {/* Horizontal Line - centered on desktop, hidden on mobile */}
           <div
-            className="absolute top-1/2 left-0 right-0 h-0.5 transform -translate-y-1/2"
+            className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 transform -translate-y-1/2"
+            style={{ backgroundColor: 'white' }}
+          />
+          
+          {/* Vertical Line - visible on mobile only, centered */}
+          <div
+            className="md:hidden absolute left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-1/2"
             style={{ backgroundColor: 'white' }}
           />
 
           {/* Steps Grid */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 relative">
             {steps.map((step, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center relative">
-                {/* Step Title - Above line */}
-                <h3 className="text-sm font-medium text-white leading-tight mb-2 max-w-48 absolute -top-20">
-                  {step.title}
-                </h3>
-                
-                {/* Step Label - Below title, above line */}
-                <p className="text-xs font-medium text-white absolute -top-8">
-                  {step.label}
-                </p>
-
-                {/* Circle Indicator - Centered on line */}
-                <div
-                  className="w-4 h-4 rounded-full flex items-center justify-center relative z-10 border-2"
-                  style={{ 
-                    backgroundColor: 'white',
-                    borderColor: 'white'
-                  }}
-                >
+              <div key={idx} className="flex md:flex-col items-start md:items-center text-left md:text-center relative">
+                {/* Mobile Layout */}
+                <div className="md:hidden w-full relative">
+                  {/* Circle Indicator - Always centered */}
                   <div
-                    className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: colors.orange }}
-                  />
+                    className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full flex items-center justify-center border-2 z-10"
+                    style={{ 
+                      backgroundColor: 'white',
+                      borderColor: 'white',
+                      top: '0.5rem'
+                    }}
+                  >
+                    <div
+                      className="w-2 h-2 rounded-full"
+                      style={{ backgroundColor: colors.orange }}
+                    />
+                  </div>
+                  
+                  {/* Content - Alternating left/right */}
+                  <div className={`w-5/12 ${idx % 2 === 0 ? 'mr-auto pr-4' : 'ml-auto pl-4'}`}>
+                    <div className="bg-white rounded-lg p-4 shadow-md">
+                      <p className="text-xs font-medium mb-1" style={{ color: colors.orange }}>
+                        {step.label}
+                      </p>
+                      <h3 className="text-sm font-medium text-gray-800 leading-tight">
+                        {step.title}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Desktop Layout */}
+                <div className="hidden md:flex md:flex-col md:items-center md:text-center">
+                  {/* Step Title - Above line */}
+                  <h3 className="text-sm font-medium text-white leading-tight mb-2 max-w-48 absolute -top-20 text-center">
+                    {step.title}
+                  </h3>
+                  
+                  {/* Step Label - Below title, above line */}
+                  <p className="text-xs font-medium text-white absolute -top-8 text-center">
+                    {step.label}
+                  </p>
+
+                  {/* Circle Indicator - Centered on line */}
+                  <div
+                    className="w-4 h-4 rounded-full flex items-center justify-center relative z-10 border-2"
+                    style={{ 
+                      backgroundColor: 'white',
+                      borderColor: 'white'
+                    }}
+                  >
+                    <div
+                      className="w-2 h-2 rounded-full"
+                      style={{ backgroundColor: colors.orange }}
+                    />
+                  </div>
                 </div>
               </div>
             ))}

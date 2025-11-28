@@ -23,8 +23,8 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto w-full text-white py-12">
         <h1 className="font-extrabold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-5xl">
-          <span className="block whitespace-nowrap">{t('hero.heading_line1')} <span style={{ color: colors.orange }}>{t('hero.heading_thermal')}</span></span>
-          <span className="block whitespace-nowrap">{t('hero.heading_line2_prefix')} <span style={{ color: colors.orange }}>{t('hero.heading_line2_orange')}</span> {t('hero.heading_line2_suffix')}</span>
+          <span className="block md:whitespace-nowrap">{t('hero.heading_line1')} <span style={{ color: colors.orange }}>{t('hero.heading_thermal')}</span></span>
+          <span className="block md:whitespace-nowrap">{t('hero.heading_line2_prefix')} <span style={{ color: colors.orange }}>{t('hero.heading_line2_orange')}</span> {t('hero.heading_line2_suffix')}</span>
         </h1>
 
         <p className="mt-6 max-w-xl text-base text-zinc-200">{t('hero.sub')}</p>

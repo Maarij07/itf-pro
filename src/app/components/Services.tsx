@@ -88,36 +88,38 @@ export default function Services() {
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12">
           {/* Heading */}
           <h2 
-            className="text-4xl md:text-5xl font-extrabold mb-6 md:mb-0"
+            className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 md:mb-0"
             style={{ color: colors.orange }}
           >
             {t('services.heading')}
           </h2>
 
           {/* Tabs */}
-          <div className="flex flex-wrap gap-2 md:gap-4">
-            {tabs.map((tab) => (
-              <button
-                key={tab.key}
-                onClick={() => setActiveTab(tab.key)}
-                className="px-4 py-2 text-sm font-medium rounded transition-colors"
-                style={{
-                  color: activeTab === tab.key ? colors.orange : '#9CA3AF'
-                }}
-              >
-                {tab.label}
-              </button>
-            ))}
+          <div className="w-full md:w-auto overflow-x-auto">
+            <div className="flex gap-2 md:gap-4 min-w-max md:min-w-0">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  className="px-3 py-2 text-sm font-medium rounded transition-colors whitespace-nowrap"
+                  style={{
+                    color: activeTab === tab.key ? colors.orange : '#9CA3AF'
+                  }}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Services Grid */}
         <div 
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto pb-4 mb-8 cursor-grab select-none scroll-smooth"
+          className="flex gap-4 md:gap-6 overflow-x-auto pb-4 mb-6 md:mb-8 cursor-grab select-none scroll-smooth"
           style={{ 
             scrollbarWidth: 'none', 
             msOverflowStyle: 'none',
@@ -129,9 +131,9 @@ export default function Services() {
           onMouseMove={handleMouseMove}
         >
           {filteredItems.map((item) => (
-            <div key={item.id} className="relative group overflow-hidden rounded-lg flex-shrink-0" style={{ width: '20vw' }}>
+            <div key={item.id} className="relative group overflow-hidden rounded-lg flex-shrink-0" style={{ width: '70vw', maxWidth: '280px' }}>
               {/* Image */}
-              <div className="relative h-[460px] md:h-[552px]">
+              <div className="relative h-[300px] md:h-[460px] lg:h-[552px]">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -142,8 +144,8 @@ export default function Services() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 
                 {/* Text overlay */}
-                <div className="absolute bottom-6 left-0 right-0 px-6">
-                  <h3 className="text-white text-lg md:text-xl font-semibold text-center">
+                <div className="absolute bottom-4 md:bottom-6 left-0 right-0 px-4 md:px-6">
+                  <h3 className="text-white text-base md:text-lg lg:text-xl font-semibold text-center">
                     {item.title}
                   </h3>
                 </div>

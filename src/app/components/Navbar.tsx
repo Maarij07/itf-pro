@@ -42,6 +42,9 @@ export default function Navbar() {
     // Language dropdown state
     const [langOpen, setLangOpen] = useState(false);
     const langRef = useRef<HTMLDivElement | null>(null);
+    
+    // Mobile menu state
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         function onDoc(e: MouseEvent) {
@@ -68,7 +71,8 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 <div className="text-xl font-bold text-white">ITF-PRO</div>
 
-                <div className="flex-1 flex justify-center">
+                {/* Desktop Navigation */}
+                <div className="hidden md:flex flex-1 justify-center">
                     <div className="relative">
                         <ul ref={listRef} className="flex space-x-8 relative z-10">
                             {links.map(link => {
@@ -112,7 +116,8 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
+                {/* Desktop Right Side */}
+                <div className="hidden md:flex items-center space-x-4">
                     <div className="relative" ref={langRef}>
                         <button
                             onClick={() => setLangOpen(v => !v)}
@@ -165,7 +170,94 @@ export default function Navbar() {
                         {t('nav.contact')}
                     </Link>
                 </div>
+
+                {/* Mobile Menu Button */}
+                <button
+                    className="md:hidden flex items-center justify-center w-8 h-8"
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    aria-label="Toggle mobile menu"
+                >
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {mobileMenuOpen ? (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        ) : (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                        )}
+                    </svg>
+                </button>
             </div>
+
+            {/* Mobile Menu */}
+            {mobileMenuOpen && (
+                <div className="md:hidden mt-4 pb-4">
+                    <div className="flex flex-col space-y-4">
+                        {links.map(link => {
+                            const isActive = link.href === pathname;
+                            return (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    className="px-2 py-2 text-base font-medium"
+                                    style={{
+                                        color: isActive ? colors.orange : '#FFFFFF',
+                                        textDecoration: 'none',
+                                    }}
+                                    onClick={() => {
+                                        setMobileMenuOpen(false);
+                                        setLangOpen(false);
+                                    }}
+                                >
+                                    {t(link.key)}
+                                </Link>
+                            );
+                        })}
+                        
+                        {/* Mobile Language Selector */}
+                        <div className="border-t border-gray-700 pt-4">
+                            <div className="flex items-center justify-between">
+                                <span className="text-gray-300 text-sm">Language:</span>
+                                <div className="flex space-x-2">
+                                    <button
+                                        className="px-3 py-1 text-sm rounded"
+                                        style={{ 
+                                            backgroundColor: lang === 'en' ? colors.orange : 'transparent',
+                                            color: '#FFFFFF',
+                                            border: `1px solid ${colors.orange}`
+                                        }}
+                                        onClick={() => { setLang('en'); setMobileMenuOpen(false); }}
+                                    >
+                                        EN
+                                    </button>
+                                    <button
+                                        className="px-3 py-1 text-sm rounded"
+                                        style={{ 
+                                            backgroundColor: lang === 'fr' ? colors.orange : 'transparent',
+                                            color: '#FFFFFF',
+                                            border: `1px solid ${colors.orange}`
+                                        }}
+                                        onClick={() => { setLang('fr'); setMobileMenuOpen(false); }}
+                                    >
+                                        FR
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Mobile Contact Button */}
+                        <Link
+                            href="/contact"
+                            className="px-4 py-3 font-medium text-center rounded-md"
+                            style={{
+                                backgroundColor: colors.orange,
+                                color: '#FFFFFF',
+                            }}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            {t('nav.contact')}
+                        </Link>
+                    </div>
+                </div>
+            )}
         </nav>
     );
 }
