@@ -20,4 +20,90 @@
     "phone": "(+33) 07 -58-88-37-18",
     "quickLinks": "Quick Links"
   }
+  ,
+  "hero": {
+    "heading_line1": "Your trusted partner in",
+    "heading_thermal": "Thermal",
+    "heading_line2_prefix": "&",
+    "heading_line2_orange": "Fire-resistant",
+    "heading_line2_suffix": "flocking.",
+    "sub": "Expert insulation and fire protection services ensuring safety, compliance, and reliability for every project.",
+    "cta_primary": "Our Services",
+    "cta_secondary": "View Project",
+    "feature_1": "Fire Resistant Flocking",
+    "feature_2": "Intumescent Paint",
+    "feature_3": "Thermal Insulation",
+    "feature_4": "Duct Enclosure",
+    "stat_1_value": "15+",
+    "stat_1_label": "Years of Experience",
+    "stat_2_value": "499+",
+    "stat_2_label": "Project Complete",
+    "stat_3_value": "199+",
+    "stat_3_label": "Satisfied Customers"
+  }
+  ,
+  "testimonial": {
+    "years": "15 years",
+    "heading": "of experience!",
+    "para1": "With over 15 years of proven experience, ITF-PRO brings unmatched expertise in thermal insulation and fire protection. Our certified professionals understand the highest industry standards and safety regulations, ensuring every project meets strict compliance requirements.",
+    "para2": "We take pride in delivering reliable, high-performance solutions that protect buildings and the people inside them.",
+    "signature": "Mian Safdar",
+    "title": "Mian Safdar - Founder"
+  }
+  ,
+  "process": {
+    "step1_title": "Evaluation And Signing Of The Contract",
+    "step1_label": "Step 1",
+    "step2_title": "Preparation Of The Work Plan",
+    "step2_label": "Step 2",
+    "step3_title": "Implementation Of Quality Works",
+    "step3_label": "Step 3",
+    "step4_title": "Delivering The Project To The Customer",
+    "step4_label": "Step 4"
+  }
+  ,
+  "services": {
+    "heading": "Our Services",
+    "all_works": "All Works",
+    "construction": "Construction",
+    "architecture": "Architecture", 
+    "building": "Building",
+    "renovations": "Renovations",
+    "interior": "Interior",
+    "explore_all": "Explore All Projects",
+    "fire_resistant_flocking": "Fire Resistant Flocking",
+    "thermal_insulation": "Thermal Insulation",
+    "duct_enclosure": "Duct Enclosure"
+  }
+  ,
+  "client_testimonials": {
+    "heading": "What Our Client Says",
+    "testimonial1": "Working with ITF-PRO was a great experience from start to finish. Their team was professional, responsive, and clearly experts in fire protection and thermal insulation. The project was completed on time and fully compliant with safety standards.",
+    "client1_name": "Tom Delonge",
+    "client1_position": "CEO, Lenmark",
+    "testimonial2": "Exceptional service and quality work. ITF-PRO delivered exactly what we needed for our commercial building project. Their attention to detail and commitment to safety regulations is outstanding.",
+    "client2_name": "Sarah Johnson", 
+    "client2_position": "Project Manager, BuildCorp",
+    "testimonial3": "ITF-PRO's expertise in thermal insulation saved us both time and money. The team was knowledgeable, professional, and delivered results that exceeded our expectations.",
+    "client3_name": "Michael Chen",
+    "client3_position": "Operations Director, TechSpace"
+  },
+  "about": {
+    "hero_line1": "Building safer",
+    "hero_spaces_through": "spaces through",
+    "hero_insulation": "insulation",
+    "hero_and": "&",
+    "hero_fire_protection": "Fire protection",
+    "hero_excellence": "excellence.",
+    "hero_description": "With 15+ years of experience, ITF-PRO stands as a trusted partner for fire safety & thermal insulation. We combine modern techniques and strict safety standards to deliver projects on time.",
+    "why_choose_us": "Why Choose Us",
+    "certified_experts_title": "Certified Experts",
+    "certified_experts_desc": "Our team consists of certified professionals with extensive expertise in fire protection and thermal insulation.",
+    "guaranteed_compliance_title": "Guaranteed Compliance",
+    "guaranteed_compliance_desc": "All our work meets and exceeds industry safety regulations and building codes, providing you with complete peace of mind and regulatory compliance.",
+    "fast_delivery_title": "Fast Delivery",
+    "fast_delivery_desc": "We pride ourselves on efficient project management and timely delivery, completing projects on schedule without compromising on quality or safety standards.",
+    "modern_materials_title": "Modern Materials",
+    "modern_materials_desc": "We use only the latest, high-performance materials and cutting-edge techniques."
+  }
 }

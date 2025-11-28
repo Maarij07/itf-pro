@@ -20,4 +20,90 @@
     "phone": "(+33) 07 -58-88-37-18",
     "quickLinks": "Liens rapides"
   }
+  ,
+  "hero": {
+    "heading_line1": "Votre partenaire de confiance en",
+    "heading_thermal": "Thermique",
+    "heading_line2_prefix": "&",
+    "heading_line2_orange": "Résistant au feu",
+    "heading_line2_suffix": "flocage.",
+    "sub": "Services d'isolation et de protection contre l'incendie garantissant la sécurité, la conformité et la fiabilité pour chaque projet.",
+    "cta_primary": "Nos Services",
+    "cta_secondary": "Voir le projet",
+    "feature_1": "Flocage résistant au feu",
+    "feature_2": "Peinture intumescente",
+    "feature_3": "Isolation thermique",
+    "feature_4": "Enceinte de conduits",
+    "stat_1_value": "15+",
+    "stat_1_label": "Ans d'expérience",
+    "stat_2_value": "499+",
+    "stat_2_label": "Projets complets",
+    "stat_3_value": "199+",
+    "stat_3_label": "Clients satisfaits"
+  }
+  ,
+  "testimonial": {
+    "years": "15 ans",
+    "heading": "d'expérience!",
+    "para1": "Avec plus de 15 ans d'expérience éprouvée, ITF-PRO apporte une expertise inégalée en isolation thermique et protection contre l'incendie. Nos professionnels certifiés comprennent les normes industrielles les plus élevées et les réglementations de sécurité, garantissant que chaque projet répond aux strictes exigences de conformité.",
+    "para2": "Nous sommes fiers de fournir des solutions fiables et performantes qui protègent les bâtiments et les personnes qui les occupent.",
+    "signature": "Mian Safdar",
+    "title": "Mian Safdar - Fondateur"
+  }
+  ,
+  "process": {
+    "step1_title": "Évaluation Et Signature Du Contrat",
+    "step1_label": "Étape 1",
+    "step2_title": "Préparation Du Plan De Travail",
+    "step2_label": "Étape 2",
+    "step3_title": "Mise En Œuvre Des Travaux De Qualité",
+    "step3_label": "Étape 3",
+    "step4_title": "Livraison Du Projet Au Client",
+    "step4_label": "Étape 4"
+  }
+  ,
+  "services": {
+    "heading": "Nos Services",
+    "all_works": "Tous Les Travaux",
+    "construction": "Construction",
+    "architecture": "Architecture",
+    "building": "Bâtiment", 
+    "renovations": "Rénovations",
+    "interior": "Intérieur",
+    "explore_all": "Explorer Tous Les Projets",
+    "fire_resistant_flocking": "Flocage Résistant Au Feu",
+    "thermal_insulation": "Isolation Thermique",
+    "duct_enclosure": "Enceinte De Conduits"
+  }
+  ,
+  "client_testimonials": {
+    "heading": "Ce Que Disent Nos Clients",
+    "testimonial1": "Travailler avec ITF-PRO a été une excellente expérience du début à la fin. Leur équipe était professionnelle, réactive et clairement experte en protection contre l'incendie et isolation thermique. Le projet a été terminé à temps et entièrement conforme aux normes de sécurité.",
+    "client1_name": "Tom Delonge",
+    "client1_position": "PDG, Lenmark", 
+    "testimonial2": "Service exceptionnel et travail de qualité. ITF-PRO a livré exactement ce dont nous avions besoin pour notre projet de bâtiment commercial. Leur attention aux détails et leur engagement envers les réglementations de sécurité sont remarquables.",
+    "client2_name": "Sarah Johnson",
+    "client2_position": "Chef de Projet, BuildCorp",
+    "testimonial3": "L'expertise d'ITF-PRO en isolation thermique nous a fait économiser du temps et de l'argent. L'équipe était compétente, professionnelle et a livré des résultats qui ont dépassé nos attentes.",
+    "client3_name": "Michael Chen",
+    "client3_position": "Directeur des Opérations, TechSpace"
+  },
+  "about": {
+    "hero_line1": "Construire des",
+    "hero_spaces_through": "espaces plus sûrs grâce à",
+    "hero_insulation": "l'isolation",
+    "hero_and": "&",
+    "hero_fire_protection": "Protection incendie",
+    "hero_excellence": "d'excellence.",
+    "hero_description": "Avec plus de 15 ans d'expérience, ITF-PRO se présente comme un partenaire de confiance pour la sécurité incendie et l'isolation thermique. Nous combinons des techniques modernes et des normes de sécurité strictes pour livrer les projets à temps.",
+    "why_choose_us": "Pourquoi Nous Choisir",
+    "certified_experts_title": "Experts Certifiés",
+    "certified_experts_desc": "Notre équipe se compose de professionnels certifiés avec une expertise approfondie en protection contre l'incendie et isolation thermique.",
+    "guaranteed_compliance_title": "Conformité Garantie",
+    "guaranteed_compliance_desc": "Tous nos travaux respectent et dépassent les réglementations de sécurité industrielles et les codes du bâtiment, vous offrant une tranquillité d'esprit complète et une conformité réglementaire.",
+    "fast_delivery_title": "Livraison Rapide",
+    "fast_delivery_desc": "Nous nous enorgueillissons de la gestion de projet efficace et de la livraison en temps opportun, en terminant les projets à l'horaire sans compromettre la qualité ou les normes de sécurité.",
+    "modern_materials_title": "Matériaux Modernes",
+    "modern_materials_desc": "Nous utilisons uniquement les matériaux haute performance les plus récents et les techniques de pointe."
+  }
 }

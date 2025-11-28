@@ -53,7 +53,18 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav style={{ backgroundColor: colors.black }} className="text-white py-4 px-6">
+        <nav
+            style={{
+                backgroundColor: colors.black,
+                paddingTop: 'calc(1rem + 0.5vh)',
+                paddingBottom: 'calc(1rem + 0.5vh)',
+                position: 'sticky',
+                top: 0,
+                zIndex: 60,
+                width: '100%'
+            }}
+            className="text-white px-6"
+        >
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 <div className="text-xl font-bold text-white">ITF-PRO</div>
 
@@ -66,7 +77,9 @@ export default function Navbar() {
                                     <li key={link.href}>
                                         <Link
                                             href={link.href}
-                                            ref={el => (linkRefs.current[link.href] = el)}
+                                            ref={el => {
+                                                linkRefs.current[link.href] = el;
+                                            }}
                                             aria-current={isActive ? 'page' : undefined}
                                             className="px-1"
                                             style={{
