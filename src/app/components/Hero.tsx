@@ -61,19 +61,19 @@ export default function Hero() {
           <div className="grid grid-cols-2 gap-6 text-white h-full items-center">
             <div className="flex items-center gap-3">
               <div className="w-2.5 h-2.5 bg-white rounded-full flex-shrink-0"></div>
-              <span className="text-base font-medium leading-tight">Fire Resistant Flocking</span>
+              <span className="text-base font-medium leading-tight">{t('hero.feature_1')}</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-2.5 h-2.5 bg-white rounded-full flex-shrink-0"></div>
-              <span className="text-base font-medium leading-tight">Intumescent Paint</span>
+              <span className="text-base font-medium leading-tight">{t('hero.feature_2')}</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-2.5 h-2.5 bg-white rounded-full flex-shrink-0"></div>
-              <span className="text-base font-medium leading-tight">Thermal Insulation</span>
+              <span className="text-base font-medium leading-tight">{t('hero.feature_3')}</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-2.5 h-2.5 bg-white rounded-full flex-shrink-0"></div>
-              <span className="text-base font-medium leading-tight">Duct Enclosure</span>
+              <span className="text-base font-medium leading-tight">{t('hero.feature_4')}</span>
             </div>
           </div>
         </div>

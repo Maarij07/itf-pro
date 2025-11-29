@@ -18,16 +18,16 @@ export default function Testimonial() {
       <div className="absolute top-4 left-6 md:left-12 lg:left-[max(1.5rem,calc((100vw-80rem)/2))] z-10 hidden md:block">
         <div className="flex gap-16 text-white">
           <div className="text-left">
-            <div className="text-2xl font-bold" style={{ color: colors.orange }}>15+</div>
-            <div className="text-sm font-medium text-white whitespace-nowrap">Years of Experience</div>
+            <div className="text-2xl font-bold" style={{ color: colors.orange }}>{t('hero.stat_1_value')}</div>
+            <div className="text-sm font-medium text-white whitespace-nowrap">{t('hero.stat_1_label')}</div>
           </div>
           <div className="text-left">
-            <div className="text-2xl font-bold" style={{ color: colors.orange }}>499+</div>
-            <div className="text-sm font-medium text-white whitespace-nowrap">Project Complete</div>
+            <div className="text-2xl font-bold" style={{ color: colors.orange }}>{t('hero.stat_2_value')}</div>
+            <div className="text-sm font-medium text-white whitespace-nowrap">{t('hero.stat_2_label')}</div>
           </div>
           <div className="text-left">
-            <div className="text-2xl font-bold" style={{ color: colors.orange }}>199+</div>
-            <div className="text-sm font-medium text-white whitespace-nowrap">Satisfied Customers</div>
+            <div className="text-2xl font-bold" style={{ color: colors.orange }}>{t('hero.stat_3_value')}</div>
+            <div className="text-sm font-medium text-white whitespace-nowrap">{t('hero.stat_3_label')}</div>
           </div>
         </div>
       </div>
