@@ -42,18 +42,13 @@ export default function ProcessTimeline() {
                 <div className="md:hidden w-full relative">
                   {/* Circle Indicator - Always centered */}
                   <div
-                    className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full flex items-center justify-center border-2 z-10"
+                    className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full z-10 shadow-lg"
                     style={{ 
                       backgroundColor: 'white',
-                      borderColor: 'white',
+                      border: '2px solid rgba(255, 255, 255, 0.3)',
                       top: '0.5rem'
                     }}
-                  >
-                    <div
-                      className="w-2 h-2 rounded-full"
-                      style={{ backgroundColor: colors.orange }}
-                    />
-                  </div>
+                  />
                   
                   {/* Content - Alternating left/right */}
                   <div className={`w-5/12 ${idx % 2 === 0 ? 'mr-auto pr-4' : 'ml-auto pl-4'}`}>
@@ -71,7 +66,7 @@ export default function ProcessTimeline() {
                 {/* Desktop Layout */}
                 <div className="hidden md:flex md:flex-col md:items-center md:text-center">
                   {/* Step Title - Above line */}
-                  <h3 className="text-sm font-medium text-white leading-tight mb-2 max-w-48 absolute -top-20 text-center">
+                  <h3 className="text-base font-medium text-white leading-tight mb-2 max-w-48 absolute -top-20 text-center">
                     {step.title}
                   </h3>
                   
@@ -82,17 +77,12 @@ export default function ProcessTimeline() {
 
                   {/* Circle Indicator - Centered on line */}
                   <div
-                    className="w-4 h-4 rounded-full flex items-center justify-center relative z-10 border-2"
+                    className="w-4 h-4 rounded-full relative z-10 shadow-lg"
                     style={{ 
                       backgroundColor: 'white',
-                      borderColor: 'white'
+                      border: '2px solid rgba(255, 255, 255, 0.3)'
                     }}
-                  >
-                    <div
-                      className="w-2 h-2 rounded-full"
-                      style={{ backgroundColor: colors.orange }}
-                    />
-                  </div>
+                  />
                 </div>
               </div>
             ))}

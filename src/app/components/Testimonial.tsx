@@ -14,6 +14,24 @@ export default function Testimonial() {
       className="relative py-16 md:py-24 px-6"
       style={{ backgroundColor: colors.black }}
     >
+      {/* Statistics positioned to align with navbar */}
+      <div className="absolute top-4 left-6 md:left-12 lg:left-[max(1.5rem,calc((100vw-80rem)/2))] z-10 hidden md:block">
+        <div className="flex gap-16 text-white">
+          <div className="text-left">
+            <div className="text-2xl font-bold" style={{ color: colors.orange }}>15+</div>
+            <div className="text-sm font-medium text-white whitespace-nowrap">Years of Experience</div>
+          </div>
+          <div className="text-left">
+            <div className="text-2xl font-bold" style={{ color: colors.orange }}>499+</div>
+            <div className="text-sm font-medium text-white whitespace-nowrap">Project Complete</div>
+          </div>
+          <div className="text-left">
+            <div className="text-2xl font-bold" style={{ color: colors.orange }}>199+</div>
+            <div className="text-sm font-medium text-white whitespace-nowrap">Satisfied Customers</div>
+          </div>
+        </div>
+      </div>
+      
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-center">
           {/* Left: Image */}

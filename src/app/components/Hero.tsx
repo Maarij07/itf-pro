@@ -46,6 +46,37 @@ export default function Hero() {
             {t('hero.cta_secondary')}
           </a>
         </div>
+
+      </div>
+
+      {/* Orange Services Box - positioned to align with navbar */}
+      <div 
+        className="absolute bottom-0 right-6 md:right-12 lg:right-[max(1.5rem,calc((100vw-80rem)/2))] transform translate-y-1/2 z-10 hidden md:block"
+      >
+        {/* Orange box with services */}
+        <div 
+          className="rounded-md p-8 w-96 h-40 shadow-lg"
+          style={{ backgroundColor: colors.orange }}
+        >
+          <div className="grid grid-cols-2 gap-6 text-white h-full items-center">
+            <div className="flex items-center gap-3">
+              <div className="w-2.5 h-2.5 bg-white rounded-full flex-shrink-0"></div>
+              <span className="text-base font-medium leading-tight">Fire Resistant Flocking</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-2.5 h-2.5 bg-white rounded-full flex-shrink-0"></div>
+              <span className="text-base font-medium leading-tight">Intumescent Paint</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-2.5 h-2.5 bg-white rounded-full flex-shrink-0"></div>
+              <span className="text-base font-medium leading-tight">Thermal Insulation</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-2.5 h-2.5 bg-white rounded-full flex-shrink-0"></div>
+              <span className="text-base font-medium leading-tight">Duct Enclosure</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
