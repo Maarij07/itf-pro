@@ -84,98 +84,78 @@ export default function ClientTestimonials() {
       <div className="max-w-4xl mx-auto text-center">
         {/* Heading */}
         <h2 
-          className="text-3xl md:text-4xl font-extrabold mb-12"
+          className="text-3xl md:text-4xl font-extrabold mb-8 text-center"
           style={{ color: colors.orange }}
         >
           {t('client_testimonials.heading')}
         </h2>
 
-        {/* Testimonial Text (clamped to 3 lines) */}
-        <p
-          className="text-white text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto"
+        {/* Testimonial Text */}
+        <p 
+          className="text-white text-lg md:text-xl leading-relaxed mb-8 max-w-4xl mx-auto text-center"
           style={{
             display: '-webkit-box',
             WebkitLineClamp: 3,
             WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis'
+            overflow: 'hidden'
           } as React.CSSProperties}
         >
           {currentTestimonial.text}
         </p>
 
         {/* Client Info */}
-        <div className="mb-8">
-          <h3 className="text-white text-lg font-semibold">
+        <div className="mb-8 text-center">
+          <h3 className="text-white text-xl font-semibold mb-1">
             {currentTestimonial.name}
           </h3>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-base">
             {currentTestimonial.position}
           </p>
         </div>
 
-        {/* Navigation */}
-          <div className="flex items-center justify-center gap-4">
+        {/* Navigation - Sliding avatars with center highlight */}
+        <div className="flex items-center justify-center gap-6">
           {/* Previous Button */}
           <button
             onClick={prevTestimonial}
-            className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-700 text-white hover:bg-gray-800 transition"
+            className="flex items-center gap-1 text-gray-400 hover:text-white transition text-sm"
             aria-label="Previous testimonial"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
+            Prev
           </button>
 
-          {/* Avatar Carousel Container (avatars move, frame stays) */}
-          <div className="flex items-center justify-center mx-6 relative overflow-hidden w-44 h-12">
-            <div 
-              className="flex items-center gap-3"
-              style={{
-                // each step: avatar width (48px) + gap (12px) = 60px
-                // center offset for container (w-44 = 176px): 176/2 - 48/2 = 64px
-                // add testimonials.length * 60 to center on the middle repetition
-                transform: `translateX(${-currentIndex * 60 + 64 + testimonials.length * 60}px)`,
-                transition: disableTransition ? 'none' : undefined
-              }}
-            >
-              {looped.map((testimonial, idx) => {
-                // determine visual index relative to the logical testimonial index
-                const logicalIndex = idx % testimonials.length;
-                const isActive = logicalIndex === (((currentIndex % testimonials.length) + testimonials.length) % testimonials.length);
-                return (
-                  <button
-                    key={`${testimonial.id}-${idx}`}
-                    onClick={() => setCurrentIndex(testimonials.length + logicalIndex)}
-                    className={`relative transition-all duration-300 ${
-                      isActive 
-                        ? 'scale-110 z-10' 
-                        : 'scale-90 opacity-60'
-                    }`}
-                  >
-                    <div 
-                      className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center"
-                    >
-                      <img
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://via.placeholder.com/150?text='; }}
-                        className="w-full h-full object-cover block"
-                      />
-                    </div>
-                  </button>
-                );
-              })}
+          {/* Avatar Navigation - 3 visible avatars, center one highlighted */}
+          <div className="flex items-center gap-3">
+            {/* Previous avatar (small) */}
+            <div className="w-10 h-10 rounded-full overflow-hidden opacity-70">
+              <img
+                src={testimonials[(((currentIndex - 1) % testimonials.length) + testimonials.length) % testimonials.length].avatar}
+                alt=""
+                className="w-full h-full object-cover"
+              />
             </div>
-
-            {/* Stationary center frame (always orange) */}
-            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-              <div 
-                className="w-12 h-12 rounded-full"
-                style={{
-                  boxShadow: `0 0 0 2px ${colors.orange}`,
-                  backgroundColor: 'transparent'
-                } as React.CSSProperties}
+            
+            {/* Center avatar (large with ring) */}
+            <div 
+              className="w-14 h-14 rounded-full overflow-hidden border-2 p-0.5"
+              style={{ borderColor: colors.orange }}
+            >
+              <img
+                src={currentTestimonial.avatar}
+                alt={currentTestimonial.name}
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
+            
+            {/* Next avatar (small) */}
+            <div className="w-10 h-10 rounded-full overflow-hidden opacity-70">
+              <img
+                src={testimonials[(((currentIndex + 1) % testimonials.length) + testimonials.length) % testimonials.length].avatar}
+                alt=""
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
@@ -183,9 +163,10 @@ export default function ClientTestimonials() {
           {/* Next Button */}
           <button
             onClick={nextTestimonial}
-            className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-700 text-white hover:bg-gray-800 transition"
+            className="flex items-center gap-1 text-gray-400 hover:text-white transition text-sm"
             aria-label="Next testimonial"
           >
+            Next
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
