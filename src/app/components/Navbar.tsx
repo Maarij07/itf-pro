@@ -46,6 +46,9 @@ export default function Navbar() {
     // Mobile menu state
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+    // Scroll state for floating navbar
+    const [isScrolled, setIsScrolled] = useState(false);
+
     useEffect(() => {
         function onDoc(e: MouseEvent) {
             if (!langRef.current) return;
@@ -55,6 +58,16 @@ export default function Navbar() {
         return () => document.removeEventListener('mousedown', onDoc);
     }, []);
 
+    // Scroll listener for floating navbar
+    useEffect(() => {
+        function onScroll() {
+            setIsScrolled(window.scrollY > 70);
+        }
+        
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     return (
         <nav
             style={{
@@ -62,9 +75,14 @@ export default function Navbar() {
                 paddingTop: 'calc(1rem + 0.5vh)',
                 paddingBottom: 'calc(1rem + 0.5vh)',
                 position: 'sticky',
-                top: 0,
+                top: isScrolled ? '1rem' : '0',
                 zIndex: 60,
-                width: '100%'
+                width: isScrolled ? 'calc(100% - 6rem)' : '100%',
+                left: isScrolled ? '3rem' : '0',
+                borderRadius: isScrolled ? '12px' : '0',
+                margin: isScrolled ? '0 auto' : '0',
+                boxShadow: isScrolled ? '0 10px 30px rgba(0, 0, 0, 0.3)' : 'none',
+                transition: 'all 0.3s ease-in-out'
             }}
             className="text-white px-6"
         >
