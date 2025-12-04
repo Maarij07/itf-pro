@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { useState } from 'react';
 import colorsJson from '../../../colors.json';
 import { useI18n } from '../../context/LanguageProvider';
+import {useReveal} from '../hooks/useReveal';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, 'min'),
@@ -23,6 +24,7 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const { getAnimation } = useReveal();
 
   const services = [
     t('contact.form.opt_web'),
@@ -32,15 +34,11 @@ export default function ContactForm() {
     t('contact.form.opt_other'),
   ];
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<ContactFormInputs>({
-    resolver: zodResolver(contactFormSchema),
-    mode: 'onChange',
-  });
+  const { register, handleSubmit, formState: { errors }, reset } =
+    useForm<ContactFormInputs>({
+      resolver: zodResolver(contactFormSchema),
+      mode: 'onChange',
+    });
 
   const onSubmit = async (data: ContactFormInputs) => {
     setIsSubmitting(true);
@@ -59,196 +57,130 @@ export default function ContactForm() {
       } else {
         setSubmitError(t('contact.form.submit_error'));
       }
-    } catch (error) {
-      console.error('Form submission error:', error);
+    } catch {
       setSubmitError(t('contact.form.submit_error_generic'));
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const ids = ['success', 'error', 'name', 'email', 'phone', 'service', 'details', 'submit'];
+
   return (
-    <>
-      {/* Success Message */}
+    <div className="space-y-8">
+      {/* Success */}
       {submitSuccess && (
-        <div className="mb-6 p-4 rounded-lg text-white font-semibold bg-green-500 flex items-center gap-2">
-          <span>✓</span>
-          <span>{t('contact.form.submit_success')}</span>
+        <div
+          className={getAnimation('success', ids.indexOf('success'))}
+          data-animate-id="success"
+        >
+          <div className="mb-6 p-4 rounded-lg text-white font-semibold bg-green-500 flex items-center gap-2">
+            <span>✓</span>
+            <span>{t('contact.form.submit_success')}</span>
+          </div>
         </div>
       )}
 
-      {/* Error Message */}
+      {/* Error */}
       {submitError && (
-        <div className="mb-6 p-4 rounded-lg text-white font-semibold bg-red-500 flex items-center gap-2">
-          <span>✕</span>
-          <span>{submitError}</span>
+        <div
+          className={getAnimation('error', ids.indexOf('error'))}
+          data-animate-id="error"
+        >
+          <div className="mb-6 p-4 rounded-lg text-white font-semibold bg-red-500 flex items-center gap-2">
+            <span>✕</span>
+            <span>{submitError}</span>
+          </div>
         </div>
       )}
 
-      {/* Form */}
+      {/* Form Fields */}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          {/* Name and Email Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-            {/* Name Field */}
-            <div className="flex flex-col">
-              <input
-                {...register('name')}
-                type="text"
-                placeholder={t('contact.form.name')}
-                className={`w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-900 placeholder-gray-500 transition-all ${
-                  errors.name
-                    ? 'ring-2 ring-red-500'
-                    : 'focus:outline-none focus:ring-2 focus:ring-offset-2'
-                }`}
-                style={
-                  !errors.name
-                    ? ({
-                        '--tw-ring-color': colors.orange,
-                      } as React.CSSProperties)
-                    : undefined
-                }
-              />
-              {errors.name && (
-                <p className="text-white text-xs md:text-sm mt-1.5 font-medium">{t('contact.form.error_name')}</p>
-              )}
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
 
-            {/* Email Field */}
-            <div className="flex flex-col">
-              <input
-                {...register('email')}
-                type="email"
-                placeholder={t('contact.form.email')}
-                className={`w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-900 placeholder-gray-500 transition-all ${
-                  errors.email
-                    ? 'ring-2 ring-red-500'
-                    : 'focus:outline-none focus:ring-2 focus:ring-offset-2'
-                }`}
-                style={
-                  !errors.email
-                    ? ({
-                        '--tw-ring-color': colors.orange,
-                      } as React.CSSProperties)
-                    : undefined
-                }
-              />
-              {errors.email && (
-                <p className="text-white text-xs md:text-sm mt-1.5 font-medium">{t('contact.form.error_email')}</p>
-              )}
-            </div>
-          </div>
-
-          {/* Phone and Service Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-            {/* Phone Field */}
-            <div className="flex flex-col">
-              <input
-                {...register('phone')}
-                type="tel"
-                placeholder={t('contact.form.phone')}
-                className={`w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-900 placeholder-gray-500 transition-all ${
-                  errors.phone
-                    ? 'ring-2 ring-red-500'
-                    : 'focus:outline-none focus:ring-2 focus:ring-offset-2'
-                }`}
-                style={
-                  !errors.phone
-                    ? ({
-                        '--tw-ring-color': colors.orange,
-                      } as React.CSSProperties)
-                    : undefined
-                }
-              />
-              {errors.phone && (
-                <p className="text-white text-xs md:text-sm mt-1.5 font-medium">{t('contact.form.error_phone')}</p>
-              )}
-            </div>
-
-            {/* Service Select */}
-            <div className="flex flex-col">
-              <div className="relative">
-                <select
-                  {...register('service')}
-                  className={`w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-700 placeholder-gray-500 appearance-none cursor-pointer pr-10 transition-all ${
-                    errors.service
-                      ? 'ring-2 ring-red-500'
-                      : 'focus:outline-none focus:ring-2 focus:ring-offset-2'
-                  }`}
-                  style={
-                    !errors.service
-                      ? ({
-                          '--tw-ring-color': colors.orange,
-                        } as React.CSSProperties)
-                      : undefined
-                  }
-                >
-                  <option value="" className="text-gray-500">
-                    {t('contact.form.select_service')}
-                  </option>
-                  {services.map(service => (
-                    <option key={service} value={service} className="text-gray-900">
-                      {service}
-                    </option>
-                  ))}
-                </select>
-                <svg
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none text-gray-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-              </div>
-              {errors.service && (
-                <p className="text-white text-xs md:text-sm mt-1.5 font-medium">{t('contact.form.error_service')}</p>
-              )}
-            </div>
-          </div>
-
-          {/* Additional Details Textarea */}
-          <div className="flex flex-col">
-            <textarea
-              {...register('details')}
-              placeholder={t('contact.form.details')}
-              rows={4}
-              className={`w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-900 placeholder-gray-500 resize-none transition-all ${
-                errors.details
-                  ? 'ring-2 ring-red-500'
-                  : 'focus:outline-none focus:ring-2 focus:ring-offset-2'
-              }`}
-              style={
-                !errors.details
-                  ? ({
-                      '--tw-ring-color': colors.orange,
-                    } as React.CSSProperties)
-                  : undefined
-              }
-            />
-            {errors.details && (
-              <p className="text-white text-xs md:text-sm mt-1.5 font-medium">{t('contact.form.error_details')}</p>
-            )}
-          </div>
-
-          {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full py-3 px-6 rounded-lg font-semibold text-white transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed hover:shadow-lg active:shadow-md"
-            style={{
-              backgroundColor: colors.black,
-            }}
+          {/* Name */}
+          <div
+            className={getAnimation('name', ids.indexOf('name'))}
+            data-animate-id="name"
           >
-            {isSubmitting ? (
-              <span className="flex items-center justify-center gap-2">
-                <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-r-transparent"></span>
-                {t('contact.form.submitting')}
-              </span>
-            ) : (
-              t('contact.form.submit')
-            )}
+            <input {...register('name')}
+              type="text"
+              placeholder={t('contact.form.name')}
+              className={`w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-900`}
+            />
+            {errors.name && <p className="text-white text-xs md:text-sm mt-1.5 font-medium">{t('contact.form.error_name')}</p>}
+          </div>
+
+          {/* Email */}
+          <div
+            className={getAnimation('email', ids.indexOf('email'))}
+            data-animate-id="email"
+          >
+            <input {...register('email')}
+              type="email"
+              placeholder={t('contact.form.email')}
+              className={`w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-900`}
+            />
+            {errors.email && <p className="text-white text-xs md:text-sm mt-1.5 font-medium">{t('contact.form.error_email')}</p>}
+          </div>
+        </div>
+
+        {/* Phone + Service */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+
+          <div
+            className={getAnimation('phone', ids.indexOf('phone'))}
+            data-animate-id="phone"
+          >
+            <input {...register('phone')}
+              type="tel"
+              placeholder={t('contact.form.phone')}
+              className={`w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-900`}
+            />
+            {errors.phone && <p className="text-white text-xs md:text-sm mt-1.5 font-medium">{t('contact.form.error_phone')}</p>}
+          </div>
+
+          <div
+            className={getAnimation('service', ids.indexOf('service'))}
+            data-animate-id="service"
+          >
+            <select {...register('service')}
+              className="w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-700 cursor-pointer"
+            >
+              <option value="">{t('contact.form.select_service')}</option>
+              {services.map((x) => (
+                <option key={x} value={x}>{x}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {/* Details */}
+        <div
+          className={getAnimation('details', ids.indexOf('details'))}
+          data-animate-id="details"
+        >
+          <textarea {...register('details')}
+            rows={4}
+            placeholder={t('contact.form.details')}
+            className="w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-900"
+          />
+        </div>
+
+        {/* Submit Button */}
+        <div
+          className={getAnimation('submit', ids.indexOf('submit'))}
+          data-animate-id="submit"
+        >
+          <button type="submit"
+            disabled={isSubmitting}
+            className="w-full py-3 px-6 rounded-lg font-semibold text-white"
+            style={{ backgroundColor: colors.black }}
+          >
+            {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
           </button>
-        </form>
-    </>
+        </div>
+      </form>
+    </div>
   );
 }
