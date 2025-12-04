@@ -1,11 +1,13 @@
 "use client";
 import React, { useState, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import colorsJson from '../../../colors.json';
 import { useI18n } from '../../context/LanguageProvider';
 
 export default function Services() {
   const colors = colorsJson.colors;
   const { t } = useI18n();
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState('all_works');
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -131,7 +133,7 @@ export default function Services() {
           onMouseMove={handleMouseMove}
         >
           {filteredItems.map((item) => (
-            <div key={item.id} className="relative group overflow-hidden rounded-lg flex-shrink-0" style={{ width: '70vw', maxWidth: '280px' }}>
+            <div key={item.id} className="relative group overflow-hidden rounded-lg flex-shrink-0 w-[70vw] max-w-[280px] md:w-[84vw] md:max-w-[336px]">
               {/* Image */}
               <div className="relative h-[300px] md:h-[460px] lg:h-[552px]">
                 <img
@@ -157,6 +159,7 @@ export default function Services() {
         {/* Explore All Projects Button */}
         <div className="text-center md:text-right">
           <button
+            onClick={() => router.push('/project')}
             className="inline-flex items-center gap-3 text-sm font-medium hover:opacity-80 transition-opacity"
             style={{ color: colors.orange }}
           >

@@ -16,7 +16,7 @@ export default function ProcessTimeline() {
 
   return (
     <section
-      className="relative py-16 md:py-24 px-6"
+      className="relative py-12 md:py-16 px-6"
       style={{ backgroundColor: colors.black }}
     >
       <div className="max-w-7xl mx-auto">
@@ -41,18 +41,18 @@ export default function ProcessTimeline() {
                 {/* Mobile Layout */}
                 <div className="md:hidden w-full relative">
                   {/* Circle Indicator - Always centered */}
-                  <div
-                    className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full flex items-center justify-center border-2 z-10"
-                    style={{ 
-                      backgroundColor: 'white',
-                      borderColor: 'white',
-                      top: '0.5rem'
-                    }}
-                  >
-                    <div
-                      className="w-2 h-2 rounded-full"
-                      style={{ backgroundColor: colors.orange }}
-                    />
+                  <div className="absolute left-1/2 transform -translate-x-1/2 z-10" style={{ top: '0.5rem' }}>
+                    {/* Background circle ring */}
+                    <div 
+                      className="w-8 h-8 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
+                    >
+                      {/* Inner circle */}
+                      <div
+                        className="w-4 h-4 rounded-full"
+                        style={{ backgroundColor: 'white' }}
+                      />
+                    </div>
                   </div>
                   
                   {/* Content - Alternating left/right */}
@@ -71,7 +71,7 @@ export default function ProcessTimeline() {
                 {/* Desktop Layout */}
                 <div className="hidden md:flex md:flex-col md:items-center md:text-center">
                   {/* Step Title - Above line */}
-                  <h3 className="text-sm font-medium text-white leading-tight mb-2 max-w-48 absolute -top-20 text-center">
+                  <h3 className="text-base font-medium text-white leading-tight mb-2 max-w-48 absolute -top-20 text-center">
                     {step.title}
                   </h3>
                   
@@ -81,17 +81,18 @@ export default function ProcessTimeline() {
                   </p>
 
                   {/* Circle Indicator - Centered on line */}
-                  <div
-                    className="w-4 h-4 rounded-full flex items-center justify-center relative z-10 border-2"
-                    style={{ 
-                      backgroundColor: 'white',
-                      borderColor: 'white'
-                    }}
-                  >
-                    <div
-                      className="w-2 h-2 rounded-full"
-                      style={{ backgroundColor: colors.orange }}
-                    />
+                  <div className="relative z-10">
+                    {/* Background circle ring */}
+                    <div 
+                      className="w-8 h-8 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
+                    >
+                      {/* Inner circle */}
+                      <div
+                        className="w-4 h-4 rounded-full"
+                        style={{ backgroundColor: 'white' }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
