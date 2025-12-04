@@ -106,7 +106,7 @@ export default function ContactForm() {
             <input {...register('name')}
               type="text"
               placeholder={t('contact.form.name')}
-              className={`w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-900`}
+              className={`w-full px-6 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400`}
             />
             {errors.name && <p className="text-white text-xs md:text-sm mt-1.5 font-medium">{t('contact.form.error_name')}</p>}
           </div>
@@ -119,7 +119,7 @@ export default function ContactForm() {
             <input {...register('email')}
               type="email"
               placeholder={t('contact.form.email')}
-              className={`w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-900`}
+              className={`w-full px-6 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400`}
             />
             {errors.email && <p className="text-white text-xs md:text-sm mt-1.5 font-medium">{t('contact.form.error_email')}</p>}
           </div>
@@ -135,7 +135,7 @@ export default function ContactForm() {
             <input {...register('phone')}
               type="tel"
               placeholder={t('contact.form.phone')}
-              className={`w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-900`}
+              className={`w-full px-6 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400`}
             />
             {errors.phone && <p className="text-white text-xs md:text-sm mt-1.5 font-medium">{t('contact.form.error_phone')}</p>}
           </div>
@@ -145,7 +145,7 @@ export default function ContactForm() {
             data-animate-id="service"
           >
             <select {...register('service')}
-              className="w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-700 cursor-pointer"
+              className="w-full px-6 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white cursor-pointer"
             >
               <option value="">{t('contact.form.select_service')}</option>
               {services.map((x) => (
@@ -163,7 +163,7 @@ export default function ContactForm() {
           <textarea {...register('details')}
             rows={4}
             placeholder={t('contact.form.details')}
-            className="w-full px-6 py-3 rounded-lg bg-white border-0 text-gray-900"
+            className="w-full px-6 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
           />
         </div>
 

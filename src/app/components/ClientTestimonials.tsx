@@ -1,11 +1,14 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import colorsJson from '../../../colors.json';
 import { useI18n } from '../../context/LanguageProvider';
 
 export default function ClientTestimonials() {
   const colors = colorsJson.colors;
   const { t } = useI18n();
+  const testimonialsRef = useRef(null);
+  const testimonialsInView = useInView(testimonialsRef, { once: true, margin: '-100px' });
   // center the loop by starting at middle repetition
   const baseLen = 3; // number of testimonials
   const initialIndex = baseLen; // start at the middle repetition
@@ -78,20 +81,27 @@ export default function ClientTestimonials() {
 
   return (
     <section
+      ref={testimonialsRef}
       className="relative py-16 md:py-24 px-6"
       style={{ backgroundColor: colors.black }}
     >
       <div className="max-w-4xl mx-auto text-center">
         {/* Heading */}
-        <h2 
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={testimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
           className="text-3xl md:text-4xl font-extrabold mb-8 text-center"
           style={{ color: colors.orange }}
         >
           {t('client_testimonials.heading')}
-        </h2>
+        </motion.h2>
 
         {/* Testimonial Text */}
-        <p 
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={testimonialsInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="text-white text-lg md:text-xl leading-relaxed mb-8 max-w-4xl mx-auto text-center"
           style={{
             display: '-webkit-box',
@@ -101,20 +111,30 @@ export default function ClientTestimonials() {
           } as React.CSSProperties}
         >
           {currentTestimonial.text}
-        </p>
+        </motion.p>
 
         {/* Client Info */}
-        <div className="mb-8 text-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={testimonialsInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mb-8 text-center"
+        >
           <h3 className="text-white text-xl font-semibold mb-1">
             {currentTestimonial.name}
           </h3>
           <p className="text-gray-400 text-base">
             {currentTestimonial.position}
           </p>
-        </div>
+        </motion.div>
 
         {/* Navigation - Sliding avatars with center highlight */}
-        <div className="flex items-center justify-center gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={testimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex items-center justify-center gap-6"
+        >
           {/* Previous Button */}
           <button
             onClick={prevTestimonial}
@@ -171,7 +191,7 @@ export default function ClientTestimonials() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
