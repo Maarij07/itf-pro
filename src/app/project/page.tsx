@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image'; 
 import colorsJson from '../../../colors.json';
 import { useI18n } from '../../context/LanguageProvider';
 
@@ -17,6 +18,30 @@ export default function ProjectPage() {
 
   const learnMoreRef = useRef(null);
   const learnMoreInView = useInView(learnMoreRef, { once: true, margin: '-100px' });
+
+  // 2. Define your projects data here with image paths
+  // Make sure these image files exist in your 'public' folder!
+  const projects = [
+    { 
+      id: 'a', 
+      title: t('La gare du Bourget 6 000 m2'), 
+      desc: t(''), 
+      // Example path: public/images/project1.jpg
+      image:  '/images/p1.jpg' 
+    },
+    { 
+      id: 'b', 
+      title: t('Homebox Lomme 3 800 m2'), 
+      desc: t(''), 
+      image: '/images/p2.jpg' 
+    },
+    { 
+      id: 'c', 
+      title: t('Prologis Havre 10 000 m2'), 
+      desc: t(''), 
+      image: '/images/p3.jpg' 
+    },
+  ];
 
   return (
     <main style={{ backgroundColor: colors.black }} className="text-white min-h-screen">
@@ -63,11 +88,8 @@ export default function ProjectPage() {
               },
             }}
           >
-            {[
-              { id: 'a', title: t('project.card_a'), desc: t('project.card_desc') },
-              { id: 'b', title: t('project.card_b'), desc: t('project.card_desc') },
-              { id: 'c', title: t('project.card_c'), desc: t('project.card_desc') },
-            ].map((p) => (
+            {/* 3. Map over the new projects array */}
+            {projects.map((p) => (
               <motion.article
                 key={p.id}
                 variants={{
@@ -79,7 +101,17 @@ export default function ProjectPage() {
                   },
                 }}
               >
-                <div className="h-[180px] md:h-[200px] rounded-[8px] bg-[#CBCBCB]" />
+                {/* Image Container */}
+                <div className="relative h-[180px] md:h-[200px] w-full rounded-[8px] overflow-hidden bg-[#2A2A2A]">
+                  <Image 
+                    src={p.image} 
+                    alt={p.title}
+                    fill // This makes the image fill the container
+                    className="object-cover transition-transform duration-500 hover:scale-105" // Added a subtle zoom on hover
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+
                 <h3 className="mt-4 text-lg font-semibold" style={{ color: colors.orange }}>
                   {p.title}
                 </h3>
