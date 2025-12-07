@@ -197,7 +197,7 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* Timeline */}
+     {/* Timeline */}
       <section
         data-index={3}
         className={`px-4 sm:px-6 md:px-8 lg:px-12 pb-16 transition-all duration-[1200ms] ease-out opacity-0 ${
@@ -205,44 +205,59 @@ export default function ServicePage() {
         }`}
       >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-bold mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-12 sm:mb-16">
             {t('service_page.process_heading')}
           </h2>
 
-          <div className="relative mx-auto max-w-4xl">
-            <div className="flex justify-between items-center relative" style={{ height: 'clamp(40px, 10vw, 60px)' }}>
-              <div
-                className="absolute left-0 right-0"
-                style={{
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  height: 'clamp(6px, 1.5vw, 10px)',
-                  background: `linear-gradient(90deg, ${colors.orange}, #FF9E5E)`,
-                  borderRadius: 9999,
-                  zIndex: 1,
-                }}
-              />
-              {dotPositions.map((pct, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-full shrink-0 relative"
-                  style={{
-                    width: 'clamp(28px, 6vw, 40px)',
-                    height: 'clamp(28px, 6vw, 40px)',
-                    background: '#FAA673',
-                    border: '4px solid #FFFFFF',
-                    boxShadow: '0 0 12px rgba(255,116,32,.45)',
-                    zIndex: 10,
-                  }}
-                />
-              ))}
-            </div>
+          <div className="relative mx-auto max-w-5xl">
+            
+            {/* The Glowing Line Background */}
+            <div
+              className="absolute left-0 w-full rounded-full"
+              style={{
+                // Adjusted top slightly to perfectly center the 8px line relative to a 48px dot (48/2 - 8/2 = 20)
+                top: '20px', 
+                height: '8px',
+                background: `linear-gradient(90deg, ${colors.orange}, #FF9E5E)`,
+                boxShadow: `0 0 15px 2px ${colors.orange}80`,
+                zIndex: 0,
+              }}
+            />
 
-            <div className="flex justify-between items-start relative mt-4 sm:mt-5 md:mt-6">
-              {dotPositions.map((pct, idx) => (
-                <div key={idx} className="text-white font-semibold text-xs sm:text-sm md:text-base text-center flex-1" style={{ lineHeight: '1.3' }}>
-                  <div className="font-bold">{idx + 1}.</div>
-                  <div>{t(`service_page.process${idx + 1}` as any)}</div>
+            {/* The Steps Container */}
+            <div className="relative z-10 flex justify-between items-start w-full">
+              {[1, 2, 3, 4].map((num, index) => (
+                <div 
+                  key={num} 
+                  // CHANGE HERE: Dynamically set alignment based on position
+                  // Index 0 (First) -> Start (Left)
+                  // Index 3 (Last) -> End (Right)
+                  // Others -> Center
+                  className={`flex flex-col ${
+                    index === 0 ? 'items-start' : 
+                    index === 3 ? 'items-end' : 
+                    'items-center'
+                  }`}
+                >
+                  
+                  {/* The Dot */}
+                  <div
+                    className="rounded-full box-border relative transition-transform duration-300 hover:scale-110"
+                    style={{
+                      width: 'clamp(40px, 5vw, 48px)',
+                      height: 'clamp(40px, 5vw, 48px)',
+                      backgroundColor: '#faa673',
+                      border: '4px solid #FFFFFF',
+                      boxShadow: '0 0 10px rgba(0,0,0,0.5)',
+                    }}
+                  />
+
+                  {/* The Text */}
+                  <div className="mt-6 text-center">
+                    <span className="block text-lg sm:text-xl md:text-2xl font-bold text-white whitespace-nowrap">
+                      {num}. {t(`service_page.process${num}` as any)}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
