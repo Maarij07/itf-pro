@@ -1,11 +1,15 @@
 "use client";
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import colorsJson from '../../../colors.json';
 import { useI18n } from '../../context/LanguageProvider';
 
 export default function ProcessTimeline() {
   const colors = colorsJson.colors;
   const { t } = useI18n();
+
+  const timelineRef = useRef(null);
+  const timelineInView = useInView(timelineRef, { once: true, margin: '-100px' });
 
   const steps = [
     { label: t('process.step1_label'), title: t('process.step1_title') },
@@ -16,12 +20,18 @@ export default function ProcessTimeline() {
 
   return (
     <section
+      ref={timelineRef}
       className="relative py-12 md:py-16 px-6"
       style={{ backgroundColor: colors.black }}
     >
       <div className="max-w-7xl mx-auto">
         {/* Timeline Container */}
-        <div className="relative py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={timelineInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+          className="relative py-12"
+        >
           {/* Horizontal Line - centered on desktop, hidden on mobile */}
           <div
             className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 transform -translate-y-1/2"
@@ -35,9 +45,34 @@ export default function ProcessTimeline() {
           />
 
           {/* Steps Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 relative">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 relative"
+            initial="hidden"
+            animate={timelineInView ? "visible" : "hidden"}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.15,
+                  delayChildren: 0.2,
+                },
+              },
+            }}
+          >
             {steps.map((step, idx) => (
-              <div key={idx} className="flex md:flex-col items-start md:items-center text-left md:text-center relative">
+              <motion.div
+                key={idx}
+                className="flex md:flex-col items-start md:items-center text-left md:text-center relative"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.6 },
+                  },
+                }}
+              >
                 {/* Mobile Layout */}
                 <div className="md:hidden w-full relative">
                   {/* Circle Indicator - Always centered */}
@@ -95,10 +130,10 @@ export default function ProcessTimeline() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

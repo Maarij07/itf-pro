@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import { motion, useInView } from 'framer-motion';
 import colorsJson from '../../../colors.json';
 import { useI18n } from '../../context/LanguageProvider';
 
@@ -13,6 +14,31 @@ export default function Services() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+
+  // Ref for Services section
+  const servicesRef = useRef(null);
+  const servicesInView = useInView(servicesRef, { once: true, margin: '-100px' });
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollRef.current) return;
@@ -87,20 +113,29 @@ export default function Services() {
     <section
       className="relative py-16 md:py-24 px-6"
       style={{ backgroundColor: colors.black }}
+      ref={servicesRef}
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12">
           {/* Heading */}
-          <h2 
+          <motion.h2 
             className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 md:mb-0"
             style={{ color: colors.orange }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+            transition={{ duration: 0.6 }}
           >
             {t('services.heading')}
-          </h2>
+          </motion.h2>
 
           {/* Tabs */}
-          <div className="w-full md:w-auto overflow-x-auto">
+          <motion.div 
+            className="w-full md:w-auto overflow-x-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             <div className="flex gap-2 md:gap-4 min-w-max md:min-w-0">
               {tabs.map((tab) => (
                 <button
@@ -115,11 +150,11 @@ export default function Services() {
                 </button>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Services Grid */}
-        <div 
+        <motion.div 
           ref={scrollRef}
           className="flex gap-4 md:gap-6 overflow-x-auto pb-4 mb-6 md:mb-8 cursor-grab select-none scroll-smooth"
           style={{ 
@@ -131,9 +166,16 @@ export default function Services() {
           onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
+          variants={containerVariants}
+          initial="hidden"
+          animate={servicesInView ? "visible" : "hidden"}
         >
           {filteredItems.map((item) => (
-            <div key={item.id} className="relative group overflow-hidden rounded-lg flex-shrink-0 w-[70vw] max-w-[280px] md:w-[84vw] md:max-w-[336px]">
+            <motion.div 
+              key={item.id} 
+              className="relative group overflow-hidden rounded-lg flex-shrink-0 w-[70vw] max-w-[280px] md:w-[84vw] md:max-w-[336px]"
+              variants={itemVariants}
+            >
               {/* Image */}
               <div className="relative h-[300px] md:h-[460px] lg:h-[552px]">
                 <img
@@ -152,12 +194,17 @@ export default function Services() {
                   </h3>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Explore All Projects Button */}
-        <div className="text-center md:text-right">
+        <motion.div 
+          className="text-center md:text-right"
+          initial={{ opacity: 0, y: 20 }}
+          animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <button
             onClick={() => router.push('/project')}
             className="inline-flex items-center gap-3 text-sm font-medium hover:opacity-80 transition-opacity"
@@ -173,7 +220,7 @@ export default function Services() {
               </svg>
             </div>
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
