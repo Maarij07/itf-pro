@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { 
   motion, 
   useInView, 
@@ -14,14 +14,29 @@ import { useI18n } from '../../context/LanguageProvider';
 
 // --- Reusable Component for Animated Cards ---
 // This component encapsulates the advanced 3D hover and entrance animation logic
-const ProjectCard = ({ project, index, colors, featuredInView }) => {
+
+interface Project {
+  id: string;
+  title: string;
+  desc: string;
+  image: string;
+}
+
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+  colors: { [key: string]: string };
+  featuredInView: boolean;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, colors, featuredInView }) => {
   // Motion values for tilt calculations
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useSpring(useTransform(y, [-100, 100], [10, -10]), { stiffness: 100, damping: 10 });
   const rotateY = useSpring(useTransform(x, [-100, 100], [-10, 10]), { stiffness: 100, damping: 10 });
 
-  function handleMouseMove(e) {
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     const rect = e.currentTarget.getBoundingClientRect();
     x.set(e.clientX - rect.left - rect.width / 2);
     y.set(e.clientY - rect.top - rect.height / 2);
