@@ -9,29 +9,7 @@ export default function Footer() {
 
     return (
         <footer style={{ backgroundColor: colors.black }} className="text-white pt-10">
-            {/* Newsletter bar */}
-            <div className="max-w-7xl mx-auto px-6 pb-8 border-b border-white/10">
-                <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 justify-between">
-                    <div className="text-sm md:text-base font-medium">{t('footer.newsletter_label')}</div>
-                    <form className="w-full md:w-auto flex items-center gap-2" onSubmit={(e) => e.preventDefault()}>
-                        <input
-                            type="email"
-                            placeholder={t('footer.newsletter_placeholder')}
-                            className="w-full md:w-96 px-4 py-2 rounded bg-white text-black placeholder-gray-500 focus:outline-none"
-                            aria-label={t('footer.newsletter_aria')}
-                        />
-                        <button
-                            type="submit"
-                            className="px-4 py-2 rounded font-semibold"
-                            style={{ backgroundColor: colors.orange }}
-                        >
-                            {t('footer.subscribe')}
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <div className="max-w-7xl mx-auto px-6 py-12">
+            <div className="max-w-7xl mx-auto px-6 py-12 border-t border-white/10">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-16">
                     {/* Column 1: Logo, About Us */}
                     <div className="flex-1 max-w-sm">

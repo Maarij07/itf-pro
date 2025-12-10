@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, useInView } from 'framer-motion';
 import colorsJson from '../../../colors.json';
@@ -109,6 +109,14 @@ export default function Services() {
     ? serviceItems 
     : serviceItems.filter(item => item.category === activeTab);
 
+  // Reset horizontal scroll when tab changes so cards don't appear "missing" after navigating
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = 0;
+    }
+    setIsDragging(false);
+  }, [activeTab]);
+
   return (
     <section
       className="relative py-16 md:py-24 px-6"
@@ -155,6 +163,7 @@ export default function Services() {
 
         {/* Services Grid */}
         <motion.div 
+          key={activeTab}
           ref={scrollRef}
           className="flex gap-4 md:gap-6 overflow-x-auto pb-4 mb-6 md:mb-8 cursor-grab select-none scroll-smooth"
           style={{ 
@@ -170,32 +179,64 @@ export default function Services() {
           initial="hidden"
           animate={servicesInView ? "visible" : "hidden"}
         >
-          {filteredItems.map((item) => (
-            <motion.div 
-              key={item.id} 
-              className="relative group overflow-hidden rounded-lg flex-shrink-0 w-[70vw] max-w-[280px] md:w-[84vw] md:max-w-[336px]"
+          {filteredItems.length > 0 ? (
+            filteredItems.map((item) => (
+              <motion.div 
+                key={item.id} 
+                className="relative group overflow-hidden rounded-lg flex-shrink-0 w-[70vw] max-w-[280px] md:w-[84vw] md:max-w-[336px]"
+                variants={itemVariants}
+              >
+                {/* Image */}
+                <div className="relative h-[300px] md:h-[460px] lg:h-[552px]">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+                  />
+                  
+                  {/* Inner shadow overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  
+                  {/* Text overlay */}
+                  <div className="absolute bottom-4 md:bottom-6 left-0 right-0 px-4 md:px-6">
+                    <h3 className="text-white text-base md:text-lg lg:text-xl font-semibold text-center">
+                      {item.title}
+                    </h3>
+                  </div>
+                </div>
+              </motion.div>
+            ))
+          ) : (
+            <motion.div
+              className="flex-shrink-0 w-full max-w-xl mx-auto bg-zinc-900/60 border border-dashed border-zinc-700 rounded-lg py-10 px-6 flex flex-col items-center justify-center text-center"
               variants={itemVariants}
             >
-              {/* Image */}
-              <div className="relative h-[300px] md:h-[460px] lg:h-[552px]">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"
-                />
-                
-                {/* Inner shadow overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                
-                {/* Text overlay */}
-                <div className="absolute bottom-4 md:bottom-6 left-0 right-0 px-4 md:px-6">
-                  <h3 className="text-white text-base md:text-lg lg:text-xl font-semibold text-center">
-                    {item.title}
-                  </h3>
-                </div>
+              <div
+                className="w-12 h-12 rounded-full flex items-center justify-center mb-4"
+                style={{ backgroundColor: colors.orange }}
+              >
+                <svg
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l2.5 2.5M12 4a8 8 0 110 16 8 8 0 010-16z"
+                  />
+                </svg>
               </div>
+              <h3 className="text-white text-lg md:text-xl font-semibold mb-2">
+                {t('services.coming_soon_title')}
+              </h3>
+              <p className="text-gray-400 text-sm md:text-base max-w-md">
+                {t('services.coming_soon_desc')}
+              </p>
             </motion.div>
-          ))}
+          )}
         </motion.div>
 
         {/* Explore All Projects Button */}

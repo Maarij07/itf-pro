@@ -73,7 +73,9 @@
     "explore_all": "Explore All Projects",
     "fire_resistant_flocking": "Fire Resistant Flocking",
     "thermal_insulation": "Thermal Insulation",
-    "duct_enclosure": "Duct Enclosure"
+    "duct_enclosure": "Duct Enclosure",
+    "coming_soon_title": "Service coming soon",
+    "coming_soon_desc": "We are working to add detailed information about this service. Please check back soon."
   }
   ,
   "service_page": {
@@ -97,6 +99,8 @@
   ,
   "client_testimonials": {
     "heading": "What Our Client Says",
+    "heading_prefix": "What Our",
+    "heading_suffix": "Client Says",
     "testimonial1": "Working with ITF-PRO was a great experience from start to finish. Their team was professional, responsive, and clearly experts in fire protection and thermal insulation. The project was completed on time and fully compliant with safety standards.",
     "client1_name": "Tom Delonge",
     "client1_position": "CEO, Lenmark",
@@ -129,12 +133,14 @@
     "title_prefix": "Contact",
     "title_suffix": "Us",
     "subtitle": "Reliable Solutions in Insulation and Fire Protection",
+    "subtitle_prefix": "Reliable Solutions in",
+    "subtitle_suffix": "Insulation and Fire Protection",
     "feature_staff": "Professional Staff",
     "feature_satisfaction": "100% Satisfaction",
     "feature_testing": "Accurate Testing",
     "feature_pricing": "Transparent Pricing",
     "request_title": "Request A Quote",
-    "request_desc": "Complete control over products allow us to offer our customers the best quality, prices and services. We take great pride in everything that we do in Jhontraktor.",
+    "request_desc": "Complete control over our services allows us to offer our customers the best quality, prices and tailored fire protection solutions. We take great pride in everything that we do at ITF-PRO, from the first consultation to on-site installation and after‑service support. For new projects or upgrades, we’ll guide you to the right level of protection.",
     "info_heading_line1": "Contact ",
     "info_heading_line2": "Info",
     "our_location": "Our Location",
@@ -181,6 +187,15 @@
     "learn_more": "Learn More",
     "learn_more_desc": "Discover how we can help your insulation and fire protection needs",
     "get_in_touch": "Get In Touch"
+  },
+  "companies": {
+    "main_heading_prefix": "Our Best",
+    "main_heading_suffix": "Customer",
+    "main_description": "Serving this customer requires a deep understanding of complex requirements and flawless project execution. Not every provider is able to meet the quality and reliability standards they expect from their partners.",
+    "customers_heading": "Our Best Customers",
+    "customers_description": "Companies who trusted us with their projects over the years.",
+    "suppliers_heading": "Our Suppliers",
+    "suppliers_description": "Leading suppliers we partner with to deliver high-quality solutions."
   },
   "footer_extra": {},
   "footer": {

@@ -169,7 +169,7 @@ export default function ContactForm() {
 
         {/* Submit Button */}
         <div
-          className={getAnimation('submit', ids.indexOf('submit'))}
+          className={`${getAnimation('submit', ids.indexOf('submit'))} mt-6 md:mt-8`}
           data-animate-id="submit"
         >
           <button type="submit"

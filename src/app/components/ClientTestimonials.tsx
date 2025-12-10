@@ -91,10 +91,10 @@ export default function ClientTestimonials() {
           initial={{ opacity: 0, y: 20 }}
           animate={testimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-extrabold mb-8 text-center"
-          style={{ color: colors.orange }}
+          className="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white"
         >
-          {t('client_testimonials.heading')}
+          <span className="text-white">{t('client_testimonials.heading_prefix')}</span>{' '}
+          <span style={{ color: colors.orange }}>{t('client_testimonials.heading_suffix')}</span>
         </motion.h2>
 
         {/* Testimonial Text */}

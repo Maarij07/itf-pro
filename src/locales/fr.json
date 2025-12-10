@@ -73,7 +73,9 @@
     "explore_all": "Explorer Tous Les Projets",
     "fire_resistant_flocking": "Flocage Résistant Au Feu",
     "thermal_insulation": "Isolation Thermique",
-    "duct_enclosure": "Enceinte De Conduits"
+    "duct_enclosure": "Enceinte De Conduits",
+    "coming_soon_title": "Service bientôt disponible",
+    "coming_soon_desc": "Nous travaillons à ajouter des informations détaillées sur ce service. Revenez bientôt pour en savoir plus."
   }
   ,
   "service_page": {
@@ -97,6 +99,8 @@
   ,
   "client_testimonials": {
     "heading": "Ce Que Disent Nos Clients",
+    "heading_prefix": "Ce Que",
+    "heading_suffix": "Disent Nos Clients",
     "testimonial1": "Travailler avec ITF-PRO a été une excellente expérience du début à la fin. Leur équipe était professionnelle, réactive et clairement experte en protection contre l'incendie et isolation thermique. Le projet a été terminé à temps et entièrement conforme aux normes de sécurité.",
     "client1_name": "Tom Delonge",
     "client1_position": "PDG, Lenmark", 
@@ -129,12 +133,14 @@
     "title_prefix": "Contactez",
     "title_suffix": "Nous",
     "subtitle": "Des solutions fiables en isolation et protection incendie",
+    "subtitle_prefix": "Des solutions fiables en",
+    "subtitle_suffix": "isolation et protection incendie",
     "feature_staff": "Personnel professionnel",
     "feature_satisfaction": "Satisfaction 100%",
     "feature_testing": "Tests précis",
     "feature_pricing": "Tarification transparente",
     "request_title": "Demander un devis",
-    "request_desc": "Un contrôle complet des produits nous permet d'offrir à nos clients la meilleure qualité, les meilleurs prix et services. Nous sommes fiers de tout ce que nous faisons chez Jhontraktor.",
+    "request_desc": "Un contrôle complet de nos services nous permet d'offrir à nos clients la meilleure qualité, les meilleurs prix et des solutions de protection incendie sur mesure. Nous sommes fiers de tout ce que nous faisons chez ITF-PRO, de la première consultation à l'installation sur site et au service après‑vente. Pour un nouveau projet ou une rénovation, nous vous guidons vers la solution adaptée.",
     "info_heading_line1": "Contact ",
     "info_heading_line2": "Infos",
     "our_location": "Notre emplacement",
@@ -181,6 +187,15 @@
     "learn_more": "En savoir plus",
     "learn_more_desc": "Découvrez comment nous pouvons répondre à vos besoins en isolation et protection incendie",
     "get_in_touch": "Nous contacter"
+  },
+  "companies": {
+    "main_heading_prefix": "Nos Meilleurs",
+    "main_heading_suffix": "Clients",
+    "main_description": "Servir ce client exige une compréhension approfondie de besoins complexes et une exécution de projet irréprochable. Peu de prestataires sont capables d'atteindre le niveau de qualité et de fiabilité qu'ils attendent de leurs partenaires.",
+    "customers_heading": "Nos Meilleurs Clients",
+    "customers_description": "Entreprises qui nous ont confié leurs projets au fil des années.",
+    "suppliers_heading": "Nos Fournisseurs",
+    "suppliers_description": "Principaux fournisseurs avec lesquels nous collaborons pour offrir des solutions de haute qualité."
   },
   "footer_extra": {},
   "footer": {

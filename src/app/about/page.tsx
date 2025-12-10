@@ -49,16 +49,15 @@ export default function AboutPage() {
           backgroundImage: `url(${bg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: '90vh'
         }}
-        className="relative flex items-center px-6"
+        className="relative h-[90vh] bg-cover bg-center flex items-start w-full px-6 pt-24 md:pt-28"
       >
         {/* Gradient overlay - dark on left, transparent on right (same as home page) */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-black/15" />
 
-        <div className="relative max-w-7xl mx-auto w-full text-white py-20 lg:py-28">
+        <div className="relative max-w-7xl mx-auto w-full text-white pb-12">
           <motion.h1 
-            className="font-extrabold leading-tight text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+            className="font-extrabold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-5xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -189,7 +188,11 @@ export default function AboutPage() {
               animate={whyChooseInView ? "visible" : "hidden"}
             >
               {/* Certified Experts - Small Card */}
-              <motion.div className="bg-white rounded-lg p-4 md:p-6 min-h-[200px] md:h-48" variants={itemVariants}>
+              <motion.div
+                className="rounded-lg p-4 md:p-6 min-h-[200px] md:h-48"
+                style={{ backgroundColor: '#2A2A2A' }}
+                variants={itemVariants}
+              >
                 <div className="flex items-center mb-4">
                   <div 
                     className="w-8 h-8 rounded-full flex items-center justify-center mr-3 flex-shrink-0"
@@ -199,15 +202,19 @@ export default function AboutPage() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900">{t('about.certified_experts_title')}</h3>
+                  <h3 className="text-lg font-semibold text-white">{t('about.certified_experts_title')}</h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                <p className="text-white/90 leading-relaxed text-sm md:text-base">
                   {t('about.certified_experts_desc')}
                 </p>
               </motion.div>
 
               {/* Guaranteed Compliance - Large Card */}
-              <motion.div className="bg-white rounded-lg p-4 md:p-6 min-h-[200px] md:h-48 md:col-span-2" variants={itemVariants}>
+              <motion.div
+                className="rounded-lg p-4 md:p-6 min-h-[200px] md:h-48 md:col-span-2"
+                style={{ backgroundColor: '#2A2A2A' }}
+                variants={itemVariants}
+              >
                 <div className="flex items-center mb-4">
                   <div 
                     className="w-8 h-8 rounded-full flex items-center justify-center mr-3 flex-shrink-0"
@@ -217,9 +224,9 @@ export default function AboutPage() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900">{t('about.guaranteed_compliance_title')}</h3>
+                  <h3 className="text-lg font-semibold text-white">{t('about.guaranteed_compliance_title')}</h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                <p className="text-white/90 leading-relaxed text-sm md:text-base">
                   {t('about.guaranteed_compliance_desc')}
                 </p>
               </motion.div>
@@ -233,7 +240,11 @@ export default function AboutPage() {
               animate={whyChooseInView ? "visible" : "hidden"}
             >
               {/* Fast Delivery - Large Card */}
-              <motion.div className="bg-white rounded-lg p-4 md:p-6 min-h-[200px] md:h-48 md:col-span-2" variants={itemVariants}>
+              <motion.div
+                className="rounded-lg p-4 md:p-6 min-h-[200px] md:h-48 md:col-span-2"
+                style={{ backgroundColor: '#2A2A2A' }}
+                variants={itemVariants}
+              >
                 <div className="flex items-center mb-4">
                   <div 
                     className="w-8 h-8 rounded-full flex items-center justify-center mr-3 flex-shrink-0"
@@ -243,14 +254,18 @@ export default function AboutPage() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900">{t('about.fast_delivery_title')}</h3>
+                  <h3 className="text-lg font-semibold text-white">{t('about.fast_delivery_title')}</h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                <p className="text-white/90 leading-relaxed text-sm md:text-base">
                   {t('about.fast_delivery_desc')}
                 </p>
               </motion.div>
 
-              <motion.div className="bg-white rounded-lg p-4 md:p-6 min-h-[200px] md:h-48" variants={itemVariants}>
+              <motion.div
+                className="rounded-lg p-4 md:p-6 min-h-[200px] md:h-48"
+                style={{ backgroundColor: '#2A2A2A' }}
+                variants={itemVariants}
+              >
                 <div className="flex items-center mb-4">
                   <div 
                     className="w-8 h-8 rounded-full flex items-center justify-center mr-3 flex-shrink-0"
@@ -260,9 +275,9 @@ export default function AboutPage() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900">{t('about.modern_materials_title')}</h3>
+                  <h3 className="text-lg font-semibold text-white">{t('about.modern_materials_title')}</h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                <p className="text-white/90 leading-relaxed text-sm md:text-base">
                   {t('about.modern_materials_desc')}
                 </p>
               </motion.div>

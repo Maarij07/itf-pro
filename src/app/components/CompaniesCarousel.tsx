@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import colorsJson from '../../../colors.json';
+import { useI18n } from '../../context/LanguageProvider';
 
 const customerLogos = [
   { src: '/images/companies/gf logo.png', alt: 'GF' },
@@ -21,6 +22,7 @@ const supplierLogos = [
 
 export default function CompaniesCarousel() {
   const colors = colorsJson.colors;
+  const { t } = useI18n();
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: '-100px' });
 
@@ -40,10 +42,10 @@ export default function CompaniesCarousel() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4"
-          style={{ color: colors.orange }}
+          className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-white"
         >
-          Our Trusted Customer
+          <span className="text-white">{t('companies.main_heading_prefix')}</span>{' '}
+          <span style={{ color: colors.orange }}>{t('companies.main_heading_suffix')}</span>
         </motion.h2>
 
         {/* Main customer logo */}
@@ -70,9 +72,7 @@ export default function CompaniesCarousel() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="text-sm md:text-base text-gray-300 leading-relaxed"
         >
-          Serving this customer requires a deep understanding of complex requirements and
-          flawless project execution. Not every provider is able to meet the quality and
-          reliability standards they expect from their partners.
+          {t('companies.main_description')}
         </motion.p>
       </div>
 
@@ -89,10 +89,10 @@ export default function CompaniesCarousel() {
             className="text-2xl md:text-3xl font-extrabold mb-2"
             style={{ color: colors.orange }}
           >
-            Our Trusted Customers
+            {t('companies.customers_heading')}
           </h2>
           <p className="text-sm md:text-base text-gray-300">
-            Companies who trusted us with their projects over the years.
+            {t('companies.customers_description')}
           </p>
         </motion.div>
 
@@ -164,10 +164,10 @@ export default function CompaniesCarousel() {
             className="text-2xl md:text-3xl font-extrabold mb-2"
             style={{ color: colors.orange }}
           >
-            Our Suppliers
+            {t('companies.suppliers_heading')}
           </h2>
           <p className="text-sm md:text-base text-gray-300">
-            Leading suppliers we partner with to deliver high-quality solutions.
+            {t('companies.suppliers_description')}
           </p>
         </motion.div>
       </div>
