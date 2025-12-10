@@ -75,31 +75,31 @@ export default function Services() {
   const serviceItems = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80',
+      image: './images/home/image-2.svg',
       title: t('services.fire_resistant_flocking'),
       category: 'construction'
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80',
+      image: './images/home/image-5.svg',
       title: t('services.thermal_insulation'),
       category: 'building'
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80',
+      image: './images/home/image-1.svg',
       title: t('services.duct_enclosure'),
       category: 'interior'
     },
     {
       id: 4,
-      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80',
+      image: './images/home/image-3.svg',
       title: 'Intumescent Paint',
       category: 'construction'
     },
     {
       id: 5,
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80',
+      image: './images/home/image-4.svg',
       title: 'Structural Insulation',
       category: 'architecture'
     }
