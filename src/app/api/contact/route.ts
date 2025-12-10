@@ -6,7 +6,7 @@ const contactFormSchema = z.object({
   email: z.string().email(),
   phone: z.string().min(10),
   service: z.string().min(1),
-  details: z.string().min(10),
+  details: z.string().optional().or(z.literal('')),
 });
 
 export async function POST(request: NextRequest) {
