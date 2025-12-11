@@ -107,22 +107,23 @@ export default function ServicePage() {
       {/* Hero */}
       <section
         data-index={1}
-        className={`relative h-[280px] sm:h-[340px] md:h-[400px] lg:h-[460px] w-full mb-6 overflow-hidden transition-all duration-[1200ms] ease-out opacity-0 ${
+        className={`relative h-[85vh] bg-cover bg-center flex items-center w-full overflow-hidden transition-all duration-[1200ms] ease-out opacity-0 ${
           visibleSections[1] ? 'opacity-100 translate-y-0' : 'translate-y-6'
         }`}
         style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
-        <div className="relative max-w-7xl mx-auto h-full flex items-center px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="relative max-w-7xl mx-auto w-full h-full flex items-center px-6 text-white py-12">
           <div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">
+            <h1 className="mb-6 mt-10 font-extrabold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-5xl">
               {t('service_page.hero_prefix1')}{' '}
               <span style={{ color: colors.orange }}>{t('service_page.hero_orange1')}</span>{' '}
               {t('service_page.hero_prefix2')}{' '}
+              <br/>
               <span style={{ color: colors.orange }}>{t('service_page.hero_orange2')}</span>{' '}
               {t('service_page.hero_suffix')}
             </h1>
-            <p className="mt-2 sm:mt-3 max-w-2xl text-xs sm:text-sm md:text-base text-zinc-200">
+            <p className=" mb-30 max-w-xl text-base text-zinc-200">
               {t('service_page.hero_sub1')}
               <br />
               {t('service_page.hero_sub2')}
