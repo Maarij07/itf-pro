@@ -10,7 +10,6 @@ export default function ServicePage() {
   const colors = colorsJson.colors;
   const { t } = useI18n();
 
-  const dotPositions = [0, 33.333, 66.666, 100];
   const serviceScrollerRef = useRef<HTMLDivElement | null>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -22,29 +21,32 @@ export default function ServicePage() {
   const cards = [
     {
       title: t('services.fire_resistant_flocking'),
-      img: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80',
+      desc: t('service_page.card_desc_fire_resistant_flocking'),
+      img: './images/service/fire-service.svg',
     },
     {
       title: t('services.thermal_insulation'),
-      img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
+      desc: t('service_page.card_desc_thermal_insulation'),
+      img: './images/service/thermal-service.svg',
     },
     {
       title: t('services.duct_enclosure'),
-      img: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
-    },
-    // Additional cards
-    {
-      title: 'Special Fireproof Coating',
-      img: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=800&q=80',
+      desc: t('service_page.card_desc_duct_enclosure'),
+      img: './images/service/duct-service.svg',
     },
     {
-      title: 'Advanced HVAC Protection',
-      img: 'https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=800&q=80',
+      title: t('services.special_fireproof_coating'),
+      desc: t('service_page.card_desc_special_fireproof_coating'),
+      img: './images/service/fireproof-service.svg',
+    },
+    {
+      title: t('services.advanced_hvac_protection'),
+      desc: t('service_page.card_desc_advanced_hvac_protection'),
+      img: './images/service/hvac-service.svg',
     },
   ];
 
-  const heroBg =
-    'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=80';
+  const heroBg = './images/service/bg.svg';
 
   useEffect(() => {
     const el = serviceScrollerRef.current;
@@ -112,7 +114,7 @@ export default function ServicePage() {
         }`}
         style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/5 via-black/20 to-black/15"></div>
         <div className="relative max-w-7xl mx-auto w-full h-full flex items-center px-6 text-white py-12">
           <div>
             <h1 className="mb-6 mt-10 font-extrabold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-5xl">
@@ -135,14 +137,14 @@ export default function ServicePage() {
       {/* Services */}
       <section
         data-index={2}
-        className={`px-4 sm:px-6 md:px-8 lg:px-12 py-10 transition-all duration-[1200ms] ease-out opacity-0 ${
+        className={`py-10 transition-all duration-[1200ms] ease-out opacity-0 ${
           visibleSections[2] ? 'opacity-100 translate-y-0' : 'translate-y-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-8">{t('services.heading')}</h2>
 
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex items-center w-full">
             {/* Scroll Buttons */}
             <button
               onClick={() => scrollServices(-1)}
@@ -168,7 +170,7 @@ export default function ServicePage() {
             {/* Cards */}
             <div
               ref={serviceScrollerRef}
-              className="flex justify-start items-center gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2"
+              className="flex w-full justify-start items-center gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2"
               style={{ scrollbarWidth: 'none', scrollSnapType: 'x mandatory' }}
             >
               {cards.map((c, i) => (
@@ -177,7 +179,7 @@ export default function ServicePage() {
                   data-card
                   className="overflow-hidden rounded-lg sm:rounded-xl border border-white/15 shadow-[0_6px_20px_rgba(0,0,0,0.3)] snap-start shrink-0 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_28px_rgba(0,0,0,0.45)]"
                   style={{
-                    backgroundColor: '#1A1A1A',
+                    backgroundColor: ' #1A1A1A',
                     width: 'calc((100% - 2rem)/3)',
                     flex: '0 0 auto',
                   }}
@@ -189,7 +191,7 @@ export default function ServicePage() {
                     <h3 className="leading-snug font-bold text-sm sm:text-base md:text-lg" style={{ color: colors.orange }}>
                       {c.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-white/80 mt-2">{t('service_page.card_desc')}</p>
+                    <p className="text-xs sm:text-sm text-white/80 mt-2">{c.desc}</p>
                   </div>
                 </article>
               ))}
@@ -201,23 +203,21 @@ export default function ServicePage() {
      {/* Timeline */}
       <section
         data-index={3}
-        className={`px-4 sm:px-6 md:px-8 lg:px-12 pb-16 transition-all duration-[1200ms] ease-out opacity-0 ${
+        className={`pb-16 transition-all duration-[1200ms] ease-out opacity-0 ${
           visibleSections[3] ? 'opacity-100 translate-y-0' : 'translate-y-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-12 sm:mb-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl sm:text-3xl font-bold mb-12 sm:mb-16">
             {t('service_page.process_heading')}
           </h2>
 
           <div className="relative mx-auto max-w-5xl">
-            
-            {/* The Glowing Line Background */}
+            {/* Desktop: horizontal line */}
             <div
-              className="absolute left-0 w-full rounded-full"
+              className="hidden md:block absolute left-0 w-full rounded-full"
               style={{
-                // Adjusted top slightly to perfectly center the 8px line relative to a 48px dot (48/2 - 8/2 = 20)
-                top: '20px', 
+                top: '20px',
                 height: '8px',
                 background: `linear-gradient(90deg, ${colors.orange}, #FF9E5E)`,
                 boxShadow: `0 0 15px 2px ${colors.orange}80`,
@@ -225,25 +225,32 @@ export default function ServicePage() {
               }}
             />
 
-            {/* The Steps Container */}
-            <div className="relative z-10 flex justify-between items-start w-full">
+            {/* Mobile: vertical line */}
+            <div
+              className="md:hidden absolute rounded-full"
+              style={{
+                left: '20px',
+                top: '20px',
+                bottom: '20px',
+                width: '8px',
+                background: `linear-gradient(180deg, ${colors.orange}, #FF9E5E)`,
+                boxShadow: `0 0 15px 2px ${colors.orange}80`,
+                zIndex: 0,
+              }}
+            />
+
+            {/* Steps */}
+            <div className="relative z-10 flex flex-col md:flex-row md:justify-between md:items-start w-full gap-8 md:gap-0">
               {[1, 2, 3, 4].map((num, index) => (
-                <div 
-                  key={num} 
-                  // CHANGE HERE: Dynamically set alignment based on position
-                  // Index 0 (First) -> Start (Left)
-                  // Index 3 (Last) -> End (Right)
-                  // Others -> Center
-                  className={`flex flex-col ${
-                    index === 0 ? 'items-start' : 
-                    index === 3 ? 'items-end' : 
-                    'items-center'
+                <div
+                  key={num}
+                  className={`flex items-start gap-4 md:gap-0 md:flex-col ${
+                    index === 0 ? 'md:items-start' : index === 3 ? 'md:items-end' : 'md:items-center'
                   }`}
                 >
-                  
-                  {/* The Dot */}
+                  {/* Dot */}
                   <div
-                    className="rounded-full box-border relative transition-transform duration-300 hover:scale-110"
+                    className="rounded-full box-border relative shrink-0"
                     style={{
                       width: 'clamp(40px, 5vw, 48px)',
                       height: 'clamp(40px, 5vw, 48px)',
@@ -253,9 +260,9 @@ export default function ServicePage() {
                     }}
                   />
 
-                  {/* The Text */}
-                  <div className="mt-6 text-center">
-                    <span className="block text-lg sm:text-xl md:text-2xl font-bold text-white whitespace-nowrap">
+                  {/* Text */}
+                  <div className="md:mt-6 text-left md:text-center">
+                    <span className="block text-base sm:text-lg md:text-2xl font-bold text-white whitespace-normal md:whitespace-nowrap">
                       {num}. {t(`service_page.process${num}` as any)}
                     </span>
                   </div>
@@ -269,11 +276,11 @@ export default function ServicePage() {
       {/* CTA */}
       <section
         data-index={4}
-        className={`px-4 sm:px-6 md:px-8 lg:px-12 pb-20 transition-all duration-[1200ms] ease-out opacity-0 ${
+        className={`pb-20 transition-all duration-[1200ms] ease-out opacity-0 ${
           visibleSections[4] ? 'opacity-100 translate-y-0' : 'translate-y-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
               <h3 className="text-2xl sm:text-3xl font-extrabold">{t('service_page.cta_line1')}</h3>

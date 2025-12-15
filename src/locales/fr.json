@@ -74,6 +74,8 @@
     "fire_resistant_flocking": "Flocage Résistant Au Feu",
     "thermal_insulation": "Isolation Thermique",
     "duct_enclosure": "Enceinte De Conduits",
+    "special_fireproof_coating": "Revêtement ignifuge spécial",
+    "advanced_hvac_protection": "Protection CVC avancée",
     "coming_soon_title": "Service bientôt disponible",
     "coming_soon_desc": "Nous travaillons à ajouter des informations détaillées sur ce service. Revenez bientôt pour en savoir plus."
   }
@@ -86,7 +88,11 @@
     "hero_suffix": "",
     "hero_sub1": "Nos solutions certifiées garantissent la sécurité et la performance",
     "hero_sub2": "avec une stricte conformité.",
-    "card_desc": "Lorem ipsum",
+    "card_desc_fire_resistant_flocking": "Solutions de flocage résistant au feu pour protéger les structures et renforcer la conformité.",
+    "card_desc_thermal_insulation": "Isolation thermique haute performance pour améliorer l’efficacité énergétique et le confort.",
+    "card_desc_duct_enclosure": "Systèmes de caissonnement de conduits coupe-feu pour limiter la propagation via les réseaux.",
+    "card_desc_special_fireproof_coating": "Revêtement ignifuge spécial pour une protection passive renforcée et une durabilité accrue.",
+    "card_desc_advanced_hvac_protection": "Solutions avancées de protection CVC pour sécuriser les systèmes de ventilation en zones à.",
     "process_heading": "Notre Processus",
     "process1": "Contrat",
     "process2": "Planification",
@@ -179,14 +185,28 @@
     "subtitle_line1": "Découvrez une sélection de nos projets récents.",
     "subtitle_line2": "Mettant en avant notre expertise en isolation et protection incendie.",
     "featured_heading": "Projets mis en avant",
-    "card_a": "Projet A",
-    "card_b": "Projet B",
-    "card_c": "Projet C",
-    "card_desc": "Lorem ipsum",
     "load_more": "Charger plus",
     "learn_more": "En savoir plus",
     "learn_more_desc": "Découvrez comment nous pouvons répondre à vos besoins en isolation et protection incendie",
-    "get_in_touch": "Nous contacter"
+    "get_in_touch": "Nous contacter",
+    "cards": {
+      "gare_bourget": {
+        "title": "La gare du Bourget (6 000 m²)",
+        "desc": "Flocage SF1h appliqué pour protéger la structure à l’aide d’un produit fibreux."
+      },
+      "homebox_lomme": {
+        "title": "Homebox Lomme (3 800 m²)",
+        "desc": "Flocage CF1h : protection des planchers bois par produit fibreux et de la structure acier par produit pâteux."
+      },
+      "prologis_havre": {
+        "title": "Prologis Havre (10 000 m²)",
+        "desc": "Flocage CF2h : création de bandes de 5 m de large de part et d’autre des murs de séparation par produit fibreux."
+      },
+      "more_coming_soon": {
+        "title": "more project comming soon",
+        "desc": "De nouveaux projets sont en préparation. Revenez bientôt pour découvrir d’autres réalisations en isolation et protection incendie."
+      }
+    }
   },
   "companies": {
     "main_heading_prefix": "Nos Meilleurs",

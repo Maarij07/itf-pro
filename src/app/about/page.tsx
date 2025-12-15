@@ -50,10 +50,10 @@ export default function AboutPage() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
-        className="relative h-[90vh] bg-cover bg-center flex items-start w-full px-6 pt-24 md:pt-28"
+        className="relative h-[85vh] bg-cover bg-center flex items-start w-full px-6 pt-24 md:pt-28"
       >
         {/* Gradient overlay - dark on left, transparent on right (same as home page) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-black/15" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/15" />
 
         <div className="relative max-w-7xl mx-auto w-full text-white pb-12">
           <motion.h1 
