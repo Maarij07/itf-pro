@@ -87,7 +87,9 @@ export default function Navbar() {
             className="text-white px-6"
         >
             <div className="max-w-7xl mx-auto flex items-center justify-between">
-                <div className="text-xl font-bold text-white">ITF-PRO</div>
+                <Link href="/" className="text-xl font-bold text-white" aria-label="Go to homepage">
+                    ITF-PRO
+                </Link>
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex flex-1 justify-center">

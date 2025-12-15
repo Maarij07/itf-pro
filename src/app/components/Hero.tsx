@@ -52,7 +52,7 @@ export default function Hero() {
           <a
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity"
             style={{ backgroundColor: colors.orange, color: '#ffffff' }}
-            href="#services"
+            href="service"
           >
             {t('hero.cta_primary')}
           </a>
@@ -60,7 +60,7 @@ export default function Hero() {
           <a
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity"
             style={{ backgroundColor: '#ffffff', color: '#111827', boxShadow: '0 2px 6px rgba(17,24,39,0.12)' }}
-            href="#projects"
+            href="project"
           >
             {t('hero.cta_secondary')}
           </a>

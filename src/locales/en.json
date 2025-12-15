@@ -74,6 +74,8 @@
     "fire_resistant_flocking": "Fire Resistant Flocking",
     "thermal_insulation": "Thermal Insulation",
     "duct_enclosure": "Duct Enclosure",
+    "special_fireproof_coating": "Special Fireproof Coating",
+    "advanced_hvac_protection": "Advanced HVAC Protection",
     "coming_soon_title": "Service coming soon",
     "coming_soon_desc": "We are working to add detailed information about this service. Please check back soon."
   }
@@ -86,7 +88,11 @@
     "hero_suffix": "Services.",
     "hero_sub1": "Our certified solutions ensure safety, performance and",
     "hero_sub2": "strict compliance.",
-    "card_desc": "Lorem ipsum",
+    "card_desc_fire_resistant_flocking": "Fire resistant flocking solutions to protect structural elements and improve compliance.",
+    "card_desc_thermal_insulation": "High performance thermal insulation that improves energy efficiency and indoor comfort.",
+    "card_desc_duct_enclosure": "Fire rated duct enclosure systems designed to limit fire spread through HVAC networks.",
+    "card_desc_special_fireproof_coating": "Special fireproof coating for enhanced passive fire protection and long term durability.",
+    "card_desc_advanced_hvac_protection": "Advanced HVAC protection solutions to secure ventilation systems in high risk areas.",
     "process_heading": "Our Process",
     "process1": "Contract",
     "process2": "Planning",
@@ -179,14 +185,28 @@
     "subtitle_line1": "Explore a showcase of our recent projects.",
     "subtitle_line2": "Highlighting our expertise in insulation and fire protection solutions.",
     "featured_heading": "Featured Projects",
-    "card_a": "Project A",
-    "card_b": "Project B",
-    "card_c": "Project C",
-    "card_desc": "Lorem ipsum",
     "load_more": "Load More",
     "learn_more": "Learn More",
     "learn_more_desc": "Discover how we can help your insulation and fire protection needs",
-    "get_in_touch": "Get In Touch"
+    "get_in_touch": "Get In Touch",
+    "cards": {
+      "gare_bourget": {
+        "title": "The Station of Bourget (6,000 m²)",
+        "desc": "SF1h flocking applied to protect the structure using a fibrous product."
+      },
+      "homebox_lomme": {
+        "title": "Homebox Lomme (3,800 m²)",
+        "desc": "CF1h flocking to protect wooden floors with a fibrous product and the steel structure with a paste product."
+      },
+      "prologis_havre": {
+        "title": "Prologis Havre (10,000 m²)",
+        "desc": "CF2h flocking with 5m-wide strips on both sides of separation walls using a fibrous product."
+      },
+      "more_coming_soon": {
+        "title": "More Projects Comming Soon",
+        "desc": "New projects are being prepared. Check back soon to see more insulation and fire protection case studies."
+      }
+    }
   },
   "companies": {
     "main_heading_prefix": "Our Best",
