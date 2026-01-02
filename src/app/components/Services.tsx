@@ -9,7 +9,7 @@ export default function Services() {
   const colors = colorsJson.colors;
   const { t } = useI18n();
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState('all_works');
+  const activeTab = 'all_works';
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -65,57 +65,34 @@ export default function Services() {
 
   const tabs = [
     { key: 'all_works', label: t('services.all_works') },
-    { key: 'construction', label: t('services.construction') },
-    { key: 'architecture', label: t('services.architecture') },
-    { key: 'building', label: t('services.building') },
-    { key: 'renovations', label: t('services.renovations') },
-    { key: 'interior', label: t('services.interior') },
   ];
 
   const serviceItems = [
     {
       id: 1,
-      image: './images/home/image-2.svg',
-      title: t('services.fire_resistant_flocking'),
-      category: 'construction'
+      image: '/images/service/Flocage coupe-feu.jpeg',
+      title: t('services.fire_resistant_flocking')
     },
     {
       id: 2,
-      image: './images/home/image-5.svg',
-      title: t('services.thermal_insulation'),
-      category: 'building'
+      image: '/images/service/Flocage thermique.jpeg',
+      title: t('services.thermal_insulation')
     },
     {
       id: 3,
-      image: './images/home/image-1.svg',
-      title: t('services.duct_enclosure'),
-      category: 'interior'
+      image: '/images/service/Conduit et encoffrement coupe-feu.jpeg',
+      title: t('services.duct_enclosure')
     },
     {
       id: 4,
-      image: './images/home/image-3.svg',
-      title: 'Intumescent Paint',
-      category: 'construction'
-    },
-    {
-      id: 5,
-      image: './images/home/image-4.svg',
-      title: 'Structural Insulation',
-      category: 'architecture'
+      image: '/images/service/Peinture intumescente.jpeg',
+      title: t('services.intumescent_paint')
     }
   ];
 
-  const filteredItems = activeTab === 'all_works' 
-    ? serviceItems 
-    : serviceItems.filter(item => item.category === activeTab);
+  const filteredItems = serviceItems;
 
-  // Reset horizontal scroll when tab changes so cards don't appear "missing" after navigating
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollLeft = 0;
-    }
-    setIsDragging(false);
-  }, [activeTab]);
+
 
   return (
     <section
@@ -146,16 +123,15 @@ export default function Services() {
           >
             <div className="flex gap-2 md:gap-4 min-w-max md:min-w-0">
               {tabs.map((tab) => (
-                <button
+                <span
                   key={tab.key}
-                  onClick={() => setActiveTab(tab.key)}
-                  className="px-3 py-2 text-sm font-medium rounded transition-colors whitespace-nowrap"
+                  className="px-3 py-2 text-sm font-medium rounded whitespace-nowrap"
                   style={{
-                    color: activeTab === tab.key ? colors.orange : '#9CA3AF'
+                    color: colors.orange
                   }}
                 >
                   {tab.label}
-                </button>
+                </span>
               ))}
             </div>
           </motion.div>

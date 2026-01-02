@@ -71,11 +71,13 @@
     "renovations": "Rénovations",
     "interior": "Intérieur",
     "explore_all": "Explorer Tous Les Projets",
-    "fire_resistant_flocking": "Flocage Résistant Au Feu",
-    "thermal_insulation": "Isolation Thermique",
-    "duct_enclosure": "Enceinte De Conduits",
+    "fire_resistant_flocking": "Flocage coupe-feu",
+    "thermal_insulation": "Flocage thermique",
+    "duct_enclosure": "Conduit et encoffrement coupe-feu",
     "special_fireproof_coating": "Revêtement ignifuge spécial",
     "advanced_hvac_protection": "Protection CVC avancée",
+    "intumescent_paint": "Peinture intumescente",
+    "structural_insulation": "Isolation structurelle",
     "coming_soon_title": "Service bientôt disponible",
     "coming_soon_desc": "Nous travaillons à ajouter des informations détaillées sur ce service. Revenez bientôt pour en savoir plus."
   }
