@@ -22,17 +22,17 @@ export default function ServicePage() {
     {
       title: t('services.fire_resistant_flocking'),
       desc: t('service_page.card_desc_fire_resistant_flocking'),
-      img: './images/service/fire-service.svg',
+      img: './images/service/Flocage coupe-feu.jpeg',
     },
     {
       title: t('services.thermal_insulation'),
       desc: t('service_page.card_desc_thermal_insulation'),
-      img: './images/service/thermal-service.svg',
+      img: './images/service/Flocage thermique.jpeg',
     },
     {
       title: t('services.duct_enclosure'),
       desc: t('service_page.card_desc_duct_enclosure'),
-      img: './images/service/duct-service.svg',
+      img: './images/service/Conduit et encoffrement coupe-feu.jpeg',
     },
     {
       title: t('services.special_fireproof_coating'),
